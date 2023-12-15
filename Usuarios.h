@@ -1,5 +1,10 @@
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Winaccessible-base"
 #ifndef PROGRAMACIONI_PROYECTO4PARCIAL_USUARIOS_H
 #define PROGRAMACIONI_PROYECTO4PARCIAL_USUARIOS_H
+
+#include <iostream>
+#include <string>
 
 class Empleado{
 public:
@@ -82,6 +87,14 @@ public:
         this -> ContenidoCajas = "N/A";
     }
 
+    // Constructor Explicito de Almacen con Herencia de Empleado
+    Almacen(int NumCajas, int EspacioDisponible, int EspacioOcupado, int PesoCajas, std::string ContenidoCajas) : Empleado(){
+        this -> NumCajas = NumCajas;
+        this -> EspacioDisponible = EspacioDisponible;
+        this -> EspacioOcupado = EspacioOcupado;
+        this -> PesoCajas = PesoCajas;
+        this -> ContenidoCajas = ContenidoCajas;
+    }
 
 private:
     // Declaracion de Variables
@@ -92,4 +105,32 @@ private:
     std::string ContenidoCajas;
 };
 
+class Gerente : public Empleado, public Contador, public Almacen {
+public:
+    // Constructor Implicito de Gerente con Herencia de Empleado, Contador y Almacen
+    Gerente():Empleado(), Contador(), Almacen(){
+        this -> Contratar = "N/A";
+        this -> Despedir = "N/A";
+    }
+
+    // Constructor Explicito de Gerente con Herencia de Empleado, Contador y Almacen
+    Gerente(std::string Contratar, std::string Despedir) : Empleado(), Contador(), Almacen(){
+        this -> Contratar = Contratar;
+        this -> Despedir = Despedir;
+    }
+
+private:
+    std::string Contratar;
+    std::string Despedir;
+};
+
+class Jefe : public Empleado, public Contador, public Almacen, public Gerente{
+public:
+    // Constructor Implicito de Jefe con Herencia de Empleado, Contador, Almacen y Gerente
+    Jefe():Empleado(), Contador(), Almacen(), Gerente(){}
+
+};
+
 #endif //PROGRAMACIONI_PROYECTO4PARCIAL_USUARIOS_H
+
+#pragma clang diagnostic pop
