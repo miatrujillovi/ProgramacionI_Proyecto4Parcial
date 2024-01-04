@@ -34,6 +34,68 @@ public:
         this -> FechaContratacion_Year = FechaContratacion_Year;
     }
 
+    //Getters
+    std::string getNombre(){
+        return this -> Nombre;
+    }
+    std::string getDireccion(){
+        return this -> Direccion;
+    }
+    std::string getEstadoCivil(){
+        return this -> EstadoCivil;
+    }
+    std::string getRFC(){
+        return this -> RFC;
+    }
+    int getNumeroCuenta(){
+        return this -> NumeroCuenta;
+    }
+    int getNumeroSeguroSocial(){
+        return this -> NumeroSeguroSocial;
+    }
+    int getFechaContratacion_Dia(){
+        return this -> FechaContratacion_Dia;
+    }
+    int getFechaContratacion_Mes(){
+        return this -> FechaContratacion_Mes;
+    }
+    int getFechaContratacion_Year(){
+        return this -> FechaContratacion_Year;
+    }
+
+    //Setters
+    void setNombre(std::string Nombre){
+        this -> Nombre = Nombre;
+    }
+    void setDireccion(std::string Direccion){
+        this -> Direccion = Direccion;
+    }
+    void setEstadoCivil(std::string EstadoCivil){
+        this -> EstadoCivil = EstadoCivil;
+    }
+    void setRFC(std::string RFC){
+        this -> RFC = RFC;
+    }
+    void setNumeroCuenta(int NumeroCuenta){
+        this -> NumeroCuenta = NumeroCuenta;
+    }
+    void setNumeroSeguroSocial(int NumeroSeguroSocial){
+        this -> NumeroSeguroSocial = NumeroSeguroSocial;
+    }
+    void setFechaContratacion_Dia(int FechaContratacion_Dia){
+        this -> FechaContratacion_Dia = FechaContratacion_Dia;
+    }
+    void setFechaContratacion_Mes(int FechaContratacion_Mes){
+        this -> FechaContratacion_Mes = FechaContratacion_Mes;
+    }
+    void setFechaContratacion_Year(int FechaContratacion_Year){
+        this -> FechaContratacion_Year = FechaContratacion_Year;
+    }
+
+    void RevisarDatos(){
+
+    }
+
 private:
     // Declaracion de Variables
     std::string Nombre;
