@@ -92,9 +92,9 @@ public:
         this -> FechaContratacion_Year = FechaContratacion_Year;
     }
 
-    void RevisarDatos(){
+    /*void RevisarDatos(){
 
-    }
+    }*/
 
 private:
     // Declaracion de Variables
@@ -178,6 +178,22 @@ public:
     // Constructor Explicito de Gerente con Herencia de Empleado, Contador y Almacen
     Gerente(std::string Contratar, std::string Despedir) : Empleado(), Contador(), Almacen(){
         this -> Contratar = Contratar;
+        this -> Despedir = Despedir;
+    }
+
+    //Getters
+    std::string getContratar(){
+        return this -> Contratar;
+    }
+    std::string getDespedir(){
+        return this -> Despedir;
+    }
+
+    //Setters
+    void setContratar(std::string Contratar){
+        this -> Contratar = Contratar;
+    }
+    void setDespedir(std::string Despedir){
         this -> Despedir = Despedir;
     }
 
