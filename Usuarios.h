@@ -14,6 +14,8 @@ public:
         this -> Direccion = "N/A";
         this -> EstadoCivil = "N/A";
         this -> RFC = "N/A";
+        this -> Puesto = "N/A";
+        this -> Salario = 0;
         this -> NumeroCuenta = 0;
         this -> NumeroSeguroSocial = 0;
         this -> FechaContratacion_Dia = 0;
@@ -22,11 +24,13 @@ public:
     }
 
     // Constructor Explicito de Empleado
-    Empleado(std::string Nombre, std::string Direccion, std::string EstadoCivil, std::string RFC, int NumeroCuenta, int NumeroSeguroSocial, int FechaContratacion_Dia, int FechaContratacion_Mes, int FechaContratacion_Year){
+    Empleado(std::string Nombre, std::string Direccion, std::string EstadoCivil, std::string RFC, std::string Puesto, int Salario, int NumeroCuenta, int NumeroSeguroSocial, int FechaContratacion_Dia, int FechaContratacion_Mes, int FechaContratacion_Year){
         this -> Nombre = Nombre;
         this -> Direccion = Direccion;
         this -> EstadoCivil = EstadoCivil;
         this -> RFC = RFC;
+        this -> Puesto = Puesto;
+        this -> Salario = Salario;
         this -> NumeroCuenta = NumeroCuenta;
         this -> NumeroSeguroSocial = NumeroSeguroSocial;
         this -> FechaContratacion_Dia = FechaContratacion_Dia;
@@ -46,6 +50,12 @@ public:
     }
     std::string getRFC(){
         return this -> RFC;
+    }
+    std::string getPuesto(){
+        return this -> Puesto;
+    }
+    int getSalario(){
+        return this -> Salario;
     }
     int getNumeroCuenta(){
         return this -> NumeroCuenta;
@@ -76,6 +86,12 @@ public:
     void setRFC(std::string RFC){
         this -> RFC = RFC;
     }
+    void setPuesto(std::string Puesto){
+        this -> Puesto = Puesto;
+    }
+    void setSalario(int Salario){
+        this -> Salario = Salario;
+    }
     void setNumeroCuenta(int NumeroCuenta){
         this -> NumeroCuenta = NumeroCuenta;
     }
@@ -102,6 +118,8 @@ private:
     std::string Direccion;
     std::string EstadoCivil;
     std::string RFC;
+    std::string Puesto;
+    int Salario;
     int NumeroCuenta;
     int NumeroSeguroSocial;
     int FechaContratacion_Dia;
@@ -121,11 +139,45 @@ public:
     }
 
     // Constructor Explicito de Contador con Herencia de Empleado
-    Contador(int Saldo, std::string Sucursal, std::string SATKeys, std::string ConstanciaSituacionFiscal, std::string PuestoEmpleado): Empleado(std::string Nombre, std::string Direccion, std::string EstadoCivil, std::string RFC, int NumeroCuenta, int NumeroSeguroSocial, int FechaContratacion_Dia, int FechaContratacion_Mes, int FechaContratacion_Year){
+    Contador(int Saldo, std::string Sucursal, std::string SATKeys, std::string ConstanciaSituacionFiscal, std::string PuestoEmpleado): Empleado(std::string Nombre, std::string Direccion, std::string EstadoCivil, std::string RFC, std::string Puesto, int Salario, int NumeroCuenta, int NumeroSeguroSocial, int FechaContratacion_Dia, int FechaContratacion_Mes, int FechaContratacion_Year){
         this -> Saldo = Saldo;
         this -> Sucursal = Sucursal;
         this -> SATKeys = SATKeys;
         this -> ConstanciaSituacionFiscal = ConstanciaSituacionFiscal;
+        this -> PuestoEmpleado = PuestoEmpleado;
+    }
+
+    //Getters
+    int getSaldo(){
+        return this -> Saldo;
+    }
+    std::string getSucursal(){
+        return this -> Sucursal;
+    }
+    std::string getSATKeys(){
+        return this -> SETKeys;
+    }
+    std::string getConstanciaSituacionFiscal(){
+        return this -> ConstanciaSituacionFiscal;
+    }
+    std::string getPuestoEmpleado(){
+        return this -> PuestoEmpleado;
+    }
+
+    //Setters
+    void setSaldo(int Saldo){
+        this -> Saldo = Saldo;
+    }
+    void setSucursal(std::string Sucursal){
+        this -> Sucursal = Sucursal;
+    }
+    void setSATKeys(std::string SATKeys){
+        this -> SATKeys = SATKeys;
+    }
+    void setConstanciaSituacionFiscal(std::string ConstanciaSituacionFiscal){
+        this -> ConstanciaSituacionFiscal = ConstanciaSituacionFiscal;
+    }
+    void setPuestoEmpleado(std::string PuestoEmpleado){
         this -> PuestoEmpleado = PuestoEmpleado;
     }
 
@@ -150,11 +202,45 @@ public:
     }
 
     // Constructor Explicito de Almacen con Herencia de Empleado
-    Almacen(int NumCajas, int EspacioDisponible, int EspacioOcupado, int PesoCajas, std::string ContenidoCajas) : Empleado(){
+    Almacen(int NumCajas, int EspacioDisponible, int EspacioOcupado, int PesoCajas, std::string ContenidoCajas) : Empleado(std::string Nombre, std::string Direccion, std::string EstadoCivil, std::string RFC, std::string Puesto, int Salario, int NumeroCuenta, int NumeroSeguroSocial, int FechaContratacion_Dia, int FechaContratacion_Mes, int FechaContratacion_Year){
         this -> NumCajas = NumCajas;
         this -> EspacioDisponible = EspacioDisponible;
         this -> EspacioOcupado = EspacioOcupado;
         this -> PesoCajas = PesoCajas;
+        this -> ContenidoCajas = ContenidoCajas;
+    }
+
+    //Getters
+    int getNumCajas(){
+        return this -> NumCajas;
+    }
+    int getEspacioDisponible(){
+        return this -> EspacioDisponible;
+    }
+    int getEspacioOcupado(){
+        return this -> EspacioOcupado;
+    }
+    int getPesoCajas(){
+        return this -> PesoCajas;
+    }
+    std::string getContenidoCajas(){
+        return this -> ContenidoCajas;
+    }
+
+    //Setters
+    void setNumCajas(int NumCajas){
+        this -> NumCajas = NumCajas;
+    }
+    void setEspacioDisponible(int EspacioDisponible){
+        this -> EspacioDisponible = EspacioDisponible;
+    }
+    void setEspacioOcupado(int EspacioOcupado){
+        this -> EspacioOcupado = EspacioOcupado;
+    }
+    void setPesoCajas(int PesoCajas){
+        this -> PesoCajas = PesoCajas;
+    }
+    void setContenidoCajas(std::string ContenidoCajas){
         this -> ContenidoCajas = ContenidoCajas;
     }
 
