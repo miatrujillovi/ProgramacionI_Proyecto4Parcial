@@ -11,7 +11,4 @@ Cambios del 14/12/23:
 
 Cambios del 04/01/24:
 - Se crearon los Getters y Setters de la clase Empleado.
-
-Cambios del 10/01/24:
-- Se crearon los Getters y Setters de las clases Gerente y Jefe.
-- Se agregaron las variables de la clase Jefe a private.
+- 
