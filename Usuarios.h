@@ -5,6 +5,9 @@
 
 #include <iostream>
 #include <string>
+#include <vector>
+#include <fstream>
+#include <sstream>
 
 class Empleado{
 public:
@@ -267,6 +270,22 @@ public:
         this -> Despedir = Despedir;
     }
 
+    //Getters
+    int getContratar(){
+        return this -> Contratar;
+    }
+    int getDespedir(){
+        return this -> Despedir;
+    }
+
+    //Setters
+    void setContratar(std::string Contratar){
+        this -> Contratar = Contratar;
+    }
+    void setDespedir(std::string Despedir){
+        this -> Despedir = Despedir;
+    }
+
 private:
     // Declaración de Variables
     std::string Contratar;
@@ -279,20 +298,65 @@ public:
     Jefe():Empleado(){
         this -> Ascender = "N/A";
         this -> Descender = "N/A";
-        //this -> Despedir = "N/A";
-        //this -> Contratar = "N/A";
+        this -> Despedir = "N/A";
+        this -> Contratar = "N/A";
     }
 
     // Constructor Explicito
     Jefe(std::string Ascender, std::string Descender) : Empleado(std::string Nombre, std::string Direccion, std::string EstadoCivil, std::string RFC, std::string Puesto, int Salario, int NumeroCuenta, int NumeroSeguroSocial, int FechaContratacion_Dia, int FechaContratacion_Mes, int FechaContratacion_Year){
         this -> Ascender = Contratar;
         this -> Descender = Contratar;
+        this -> Despedir = Contratar;
+        this -> Contratar = Contratar;
+    }
+
+    // Getters
+    int getAscender(){
+        return this -> Ascender;
+    }
+    int getDescender(){
+        return this -> Descender;
+    }
+    int getDespedir(){
+        return this -> Despedir;
+    }
+    int getContratar(){
+        return this -> Contratar;
+    }
+
+    // Setters
+    void setAscender(std::string Ascender){
+        this -> Ascender = Ascender;
+    }
+    void setDescender(std::string Descender){
+        this -> Descender = Descender;
+    }
+    void setDespedir(std::string Despedir){
+        this -> Despedir = Despedir;
+    }
+    void setContratar(std::string Contratar){
+        this -> Contratar = Contratar;
+    }
+
+    void ContratarEmpleado(){
+        std::string filename = "BDPrincipal.csv";
+
+        std::ofstream csvFile(filename, std::ios::app);
+
+        if (!csvFile.is_open()) {
+            std::cerr << "Error al abrir la Base de Datos" << filename << std::endl;
+            return 1;
+        }
+
+        // Comando para agregar a la base de datos usando setters y getters...
     }
 
 private:
     //Declaración de Variables
     std::string Ascender;
     std::string Descender;
+    std::string Despedir;
+    std::string Contratar;
 };
 
 #endif //PROGRAMACIONI_PROYECTO4PARCIAL_USUARIOS_H

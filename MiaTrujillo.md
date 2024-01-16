@@ -14,3 +14,9 @@ Cambios del 04/01/24:
 
 Cambios del 16/01/24:
 - Corrección de errores por fallo en la versión del codigo: Se cambiaron los constructores implicitos y explicitos de Gerente y Jefe ademas de agregar su variables en private en Usuarios.h
+- Se agregaron las variables de Despedir y Contratar en la clase Jefe.
+- Se creo main.cpp
+- Se agrego iostream, fstream, sstream, int main y void CreateDB a main.cpp
+- Se agregaron las librerias vector, fstream y sstream a Usuarios.h
+- Se agregaron getters y setters a las clases Gerente y Jefe.
+- 
