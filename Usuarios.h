@@ -253,30 +253,46 @@ private:
     std::string ContenidoCajas;
 };
 
-class Gerente : public Empleado, public Contador, public Almacen {
+class Gerente : public Empleado {
 public:
-    // Constructor Implicito de Gerente con Herencia de Empleado, Contador y Almacen
-    Gerente():Empleado(), Contador(), Almacen(){
+    // Constructor Implicito
+    Gerente():Empleado(){
         this -> Contratar = "N/A";
         this -> Despedir = "N/A";
     }
 
-    // Constructor Explicito de Gerente con Herencia de Empleado, Contador y Almacen
-    Gerente(std::string Contratar, std::string Despedir) : Empleado(), Contador(), Almacen(){
+    // Constructor Explicito
+    Gerente(std::string Contratar, std::string Despedir) : Empleado(std::string Nombre, std::string Direccion, std::string EstadoCivil, std::string RFC, std::string Puesto, int Salario, int NumeroCuenta, int NumeroSeguroSocial, int FechaContratacion_Dia, int FechaContratacion_Mes, int FechaContratacion_Year){
         this -> Contratar = Contratar;
         this -> Despedir = Despedir;
     }
 
 private:
+    // Declaración de Variables
     std::string Contratar;
     std::string Despedir;
 };
 
-class Jefe : public Empleado, public Contador, public Almacen, public Gerente{
+class Jefe : public Empleado{
 public:
-    // Constructor Implicito de Jefe con Herencia de Empleado, Contador, Almacen y Gerente
-    Jefe():Empleado(), Contador(), Almacen(), Gerente(){}
+    // Constructor Implicito
+    Jefe():Empleado(){
+        this -> Ascender = "N/A";
+        this -> Descender = "N/A";
+        //this -> Despedir = "N/A";
+        //this -> Contratar = "N/A";
+    }
 
+    // Constructor Explicito
+    Jefe(std::string Ascender, std::string Descender) : Empleado(std::string Nombre, std::string Direccion, std::string EstadoCivil, std::string RFC, std::string Puesto, int Salario, int NumeroCuenta, int NumeroSeguroSocial, int FechaContratacion_Dia, int FechaContratacion_Mes, int FechaContratacion_Year){
+        this -> Ascender = Contratar;
+        this -> Descender = Contratar;
+    }
+
+private:
+    //Declaración de Variables
+    std::string Ascender;
+    std::string Descender;
 };
 
 #endif //PROGRAMACIONI_PROYECTO4PARCIAL_USUARIOS_H

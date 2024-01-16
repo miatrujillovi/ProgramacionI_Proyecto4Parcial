@@ -11,4 +11,6 @@ Cambios del 14/12/23:
 
 Cambios del 04/01/24:
 - Se crearon los Getters y Setters de la clase Empleado.
-- 
+
+Cambios del 16/01/24:
+- Corrección de errores por fallo en la versión del codigo: Se cambiaron los constructores implicitos y explicitos de Gerente y Jefe ademas de agregar su variables en private en Usuarios.h
