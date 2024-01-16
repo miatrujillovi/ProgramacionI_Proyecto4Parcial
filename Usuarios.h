@@ -158,7 +158,7 @@ public:
         return this -> Sucursal;
     }
     std::string getSATKeys(){
-        return this -> SETKeys;
+        return this -> SATKeys;
     }
     std::string getConstanciaSituacionFiscal(){
         return this -> ConstanciaSituacionFiscal;
@@ -303,7 +303,7 @@ public:
     }
 
     // Constructor Explicito
-    Jefe(std::string Ascender, std::string Descender) : Empleado(std::string Nombre, std::string Direccion, std::string EstadoCivil, std::string RFC, std::string Puesto, int Salario, int NumeroCuenta, int NumeroSeguroSocial, int FechaContratacion_Dia, int FechaContratacion_Mes, int FechaContratacion_Year){
+    Jefe(std::string Ascender, std::string Descender, std::string Despedir, std::string Contratar) : Empleado(std::string Nombre, std::string Direccion, std::string EstadoCivil, std::string RFC, std::string Puesto, int Salario, int NumeroCuenta, int NumeroSeguroSocial, int FechaContratacion_Dia, int FechaContratacion_Mes, int FechaContratacion_Year){
         this -> Ascender = Contratar;
         this -> Descender = Contratar;
         this -> Despedir = Contratar;

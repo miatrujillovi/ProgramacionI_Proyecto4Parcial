@@ -19,4 +19,5 @@ Cambios del 16/01/24:
 - Se agrego iostream, fstream, sstream, int main y void CreateDB a main.cpp
 - Se agregaron las librerias vector, fstream y sstream a Usuarios.h
 - Se agregaron getters y setters a las clases Gerente y Jefe.
+- Se modifico la funcion CreateDB en main.cpp
 - 
