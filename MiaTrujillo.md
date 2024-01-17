@@ -26,4 +26,6 @@ Cambios del 16/01/24:
 - Se agrego la variable EstadoEmpresa en constructores explicitos y en los headers de la base de datos.
 - Se agrego la libreria Vector en main.cpp.
 - Se modifico la función CreateDB para agregar números secuenciales en la base de datos.
+- Se modifico el for en el método ContratarEmpleado en Usuarios.h
+- Se modifico el método DespedirEmpleado para hacer su función correctamente en Usuarios.h
 - 
