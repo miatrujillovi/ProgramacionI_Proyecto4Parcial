@@ -35,4 +35,4 @@ Cambios del 16/01/24:
 - Se creo el método de RevisarDatos en Usuarios.h
 
 Cambios del 17/01/24: 
-- Se creo el método ContratarEmpleado, DespedirEmpleado, RevisarDatosEmpleado y RevisarDatos en la clase Gerente de Usuarios.h 
+- Se creo el método ContratarEmpleado, DespedirEmpleado, RevisarDatosEmpleado y RevisarDatos en la clase Gerente de Usuarios.h  
