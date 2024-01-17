@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <sstream>
+#include <vector>
 
 // Función que verifica la existencia de la base de datos, y si no, la crea.
 void CreateDB(){
@@ -19,7 +20,7 @@ void CreateDB(){
         }
 
         // Creamos los encabezados de la base de datos
-        std::vector<std::string> headers = {"ID", "Puesto", "Nombre", "Direccion", "EstadoCivil", "RFC", "Salario", "NumeroCuenta", "NumeroSeguroSocial", "FechaContratacion_Dia", "FechaContratacion_Mes", "FechaContratacion_Year"};
+        std::vector<std::string> headers = {"ID", "Puesto", "Nombre", "Direccion", "EstadoCivil", "RFC", "Salario", "NumeroCuenta", "NumeroSeguroSocial", "FechaContratacion_Dia", "FechaContratacion_Mes", "FechaContratacion_Year", "EstadoEmpresa"};
         for (size_t i = 0; i < headers.size(); i++) {
             csvFile << headers[i];
             if (i < headers_size() -1) {
@@ -27,6 +28,23 @@ void CreateDB(){
             }
         }
         csvFile << "\n";
+
+        // Agregamos números secuenciales en la columna de ID
+        size_t UpdateCol = 0;
+        for (size_t i = 0; i < IDs(); i++) {
+            IDs[i][UpdateCol] = std::to_string(i + 1);
+        }
+
+        for (const auto& fila : IDs) {
+            for (size_t i = 0; i < fila.size(); i++) {
+                csvFile << fila[i];
+                if (i < fila.size() - 1) {
+                    csvFile << ",";
+                }
+            }
+            csvFile << "\n";
+        }
+
         csvFile.close();
     }
 }

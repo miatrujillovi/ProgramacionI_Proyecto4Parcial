@@ -18,6 +18,7 @@ public:
         this -> EstadoCivil = "N/A";
         this -> RFC = "N/A";
         this -> Puesto = "N/A";
+        this -> EstadoEmpresa = "N/A";
         this -> Salario = 0;
         this -> NumeroCuenta = 0;
         this -> NumeroSeguroSocial = 0;
@@ -27,12 +28,13 @@ public:
     }
 
     // Constructor Explicito de Empleado
-    Empleado(std::string Nombre, std::string Direccion, std::string EstadoCivil, std::string RFC, std::string Puesto, int Salario, int NumeroCuenta, int NumeroSeguroSocial, int FechaContratacion_Dia, int FechaContratacion_Mes, int FechaContratacion_Year){
+    Empleado(std::string Nombre, std::string Direccion, std::string EstadoCivil, std::string RFC, std::string Puesto, std::string EstadoEmpresa, int Salario, int NumeroCuenta, int NumeroSeguroSocial, int FechaContratacion_Dia, int FechaContratacion_Mes, int FechaContratacion_Year){
         this -> Nombre = Nombre;
         this -> Direccion = Direccion;
         this -> EstadoCivil = EstadoCivil;
         this -> RFC = RFC;
         this -> Puesto = Puesto;
+        this -> EstadoEmpresa = EstadoEmpresa
         this -> Salario = Salario;
         this -> NumeroCuenta = NumeroCuenta;
         this -> NumeroSeguroSocial = NumeroSeguroSocial;
@@ -56,6 +58,9 @@ public:
     }
     std::string getPuesto(){
         return this -> Puesto;
+    }
+    std::string getEstadoEmpresa(){
+        return this -> EstadoEmpresa;
     }
     int getSalario(){
         return this -> Salario;
@@ -92,6 +97,9 @@ public:
     void setPuesto(std::string Puesto){
         this -> Puesto = Puesto;
     }
+    void setEstadoEmpresa(std::string EstadoEmpresa){
+        this -> EstadoEmpresa = EstadoEmpresa;
+    }
     void setSalario(int Salario){
         this -> Salario = Salario;
     }
@@ -111,9 +119,9 @@ public:
         this -> FechaContratacion_Year = FechaContratacion_Year;
     }
 
-    void RevisarDatos(){
+    /*void RevisarDatos(){
 
-    }
+    }*/
 
 private:
     // Declaracion de Variables
@@ -122,6 +130,7 @@ private:
     std::string EstadoCivil;
     std::string RFC;
     std::string Puesto;
+    std::string EstadoEmpresa;
     int Salario;
     int NumeroCuenta;
     int NumeroSeguroSocial;
@@ -142,7 +151,7 @@ public:
     }
 
     // Constructor Explicito de Contador con Herencia de Empleado
-    Contador(int Saldo, std::string Sucursal, std::string SATKeys, std::string ConstanciaSituacionFiscal, std::string PuestoEmpleado): Empleado(std::string Nombre, std::string Direccion, std::string EstadoCivil, std::string RFC, std::string Puesto, int Salario, int NumeroCuenta, int NumeroSeguroSocial, int FechaContratacion_Dia, int FechaContratacion_Mes, int FechaContratacion_Year){
+    Contador(int Saldo, std::string Sucursal, std::string SATKeys, std::string ConstanciaSituacionFiscal, std::string PuestoEmpleado): Empleado(std::string Nombre, std::string Direccion, std::string EstadoCivil, std::string RFC, std::string Puesto, std::string EstadoEmpresa, int Salario, int NumeroCuenta, int NumeroSeguroSocial, int FechaContratacion_Dia, int FechaContratacion_Mes, int FechaContratacion_Year){
         this -> Saldo = Saldo;
         this -> Sucursal = Sucursal;
         this -> SATKeys = SATKeys;
@@ -205,7 +214,7 @@ public:
     }
 
     // Constructor Explicito de Almacen con Herencia de Empleado
-    Almacen(int NumCajas, int EspacioDisponible, int EspacioOcupado, int PesoCajas, std::string ContenidoCajas) : Empleado(std::string Nombre, std::string Direccion, std::string EstadoCivil, std::string RFC, std::string Puesto, int Salario, int NumeroCuenta, int NumeroSeguroSocial, int FechaContratacion_Dia, int FechaContratacion_Mes, int FechaContratacion_Year){
+    Almacen(int NumCajas, int EspacioDisponible, int EspacioOcupado, int PesoCajas, std::string ContenidoCajas) : Empleado(std::string Nombre, std::string Direccion, std::string EstadoCivil, std::string RFC, std::string Puesto, std::string EstadoEmpresa, int Salario, int NumeroCuenta, int NumeroSeguroSocial, int FechaContratacion_Dia, int FechaContratacion_Mes, int FechaContratacion_Year){
         this -> NumCajas = NumCajas;
         this -> EspacioDisponible = EspacioDisponible;
         this -> EspacioOcupado = EspacioOcupado;
@@ -265,7 +274,7 @@ public:
     }
 
     // Constructor Explicito
-    Gerente(std::string Contratar, std::string Despedir) : Empleado(std::string Nombre, std::string Direccion, std::string EstadoCivil, std::string RFC, std::string Puesto, int Salario, int NumeroCuenta, int NumeroSeguroSocial, int FechaContratacion_Dia, int FechaContratacion_Mes, int FechaContratacion_Year){
+    Gerente(std::string Contratar, std::string Despedir) : Empleado(std::string Nombre, std::string Direccion, std::string EstadoCivil, std::string RFC, std::string Puesto, std::string EstadoEmpresa, int Salario, int NumeroCuenta, int NumeroSeguroSocial, int FechaContratacion_Dia, int FechaContratacion_Mes, int FechaContratacion_Year){
         this -> Contratar = Contratar;
         this -> Despedir = Despedir;
     }
@@ -303,7 +312,7 @@ public:
     }
 
     // Constructor Explicito
-    Jefe(std::string Ascender, std::string Descender, std::string Despedir, std::string Contratar) : Empleado(std::string Nombre, std::string Direccion, std::string EstadoCivil, std::string RFC, std::string Puesto, int Salario, int NumeroCuenta, int NumeroSeguroSocial, int FechaContratacion_Dia, int FechaContratacion_Mes, int FechaContratacion_Year){
+    Jefe(std::string Ascender, std::string Descender, std::string Despedir, std::string Contratar) : Empleado(std::string Nombre, std::string Direccion, std::string EstadoCivil, std::string RFC, std::string Puesto, std::string EstadoEmpresa, int Salario, int NumeroCuenta, int NumeroSeguroSocial, int FechaContratacion_Dia, int FechaContratacion_Mes, int FechaContratacion_Year){
         this -> Ascender = Contratar;
         this -> Descender = Contratar;
         this -> Despedir = Contratar;
@@ -342,7 +351,7 @@ public:
         std::string filename = "BDPrincipal.csv";
 
         // Ingresar Datos del Empleado
-        std::cout << "Ingrese los nuevos datos del Empleado procurando separar los datos con una coma (ID, Puesto, Nombre, Dirección, Estado Civil, RFC, Salario, Numero de Cuenta, Numero de Seguro Social, Dia de Contratación, Mes de Contratación y Año de Contratación): "
+        std::cout << "Ingrese los nuevos datos del Empleado procurando separar los datos con una coma (Puesto, Nombre, Dirección, Estado Civil, RFC, Salario, Numero de Cuenta, Numero de Seguro Social, Dia de Contratación, Mes de Contratación, Año de Contratación y Estado Actual en la Empresa): "
         std::string userInput;
         std::getline(std::cin, userInput);
 
@@ -371,7 +380,7 @@ public:
         // Cerramos la BD
         csvFile.close();
 
-        std::cout << "¡Empleado agreado exitosamente!";
+        std::cout << "¡Empleado agregado exitosamente!";
     }
 
     void DespedirEmpleado(){
