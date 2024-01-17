@@ -20,4 +20,5 @@ Cambios del 16/01/24:
 - Se agregaron las librerias vector, fstream y sstream a Usuarios.h
 - Se agregaron getters y setters a las clases Gerente y Jefe.
 - Se modifico la funcion CreateDB en main.cpp
-- 
+- Se creo/modifico el método de ContratarEmpleado en Usuarios.h
+- Se creo el método de DespedirEmpleado en Usuarios.h

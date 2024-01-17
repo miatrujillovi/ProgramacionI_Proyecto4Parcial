@@ -341,6 +341,19 @@ public:
     void ContratarEmpleado(){
         std::string filename = "BDPrincipal.csv";
 
+        // Ingresar Datos del Empleado
+        std::cout << "Ingrese los nuevos datos del Empleado procurando separar los datos con una coma (ID, Puesto, Nombre, Dirección, Estado Civil, RFC, Salario, Numero de Cuenta, Numero de Seguro Social, Dia de Contratación, Mes de Contratación y Año de Contratación): "
+        std::string userInput;
+        std::getline(std::cin, userInput);
+
+        // Utiilizamos un stringstream para dividir los datos ingresados
+        std::stringstream ss(userInput);
+        std::vector<std::string> NewEmpleado;
+        while (std::getline(ss, userInput, ',')) {
+            newEmpleado.push_back(userInput);
+        }
+
+        // Abrimos la BD para ingresar los datos
         std::ofstream csvFile(filename, std::ios::app);
 
         if (!csvFile.is_open()) {
@@ -348,7 +361,21 @@ public:
             return 1;
         }
 
-        // Comando para agregar a la base de datos usando setters y getters...
+        for (size_t i = 0; i < newEmpleado.size(); i++) {
+            csvFile << newEmpleado[i];
+            if (i < newEmpleado.size() - 1){
+                csvFile << ",";
+            }
+        }
+        csvFile << "\n";
+        // Cerramos la BD
+        csvFile.close();
+
+        std::cout << "¡Empleado agreado exitosamente!";
+    }
+
+    void DespedirEmpleado(){
+
     }
 
 private:
