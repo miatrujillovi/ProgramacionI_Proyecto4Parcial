@@ -119,9 +119,44 @@ public:
         this -> FechaContratacion_Year = FechaContratacion_Year;
     }
 
-    /*void RevisarDatos(){
+    void RevisarDatos() {
+        std::string filename = "BDPrincipal.csv";
 
-    }*/
+        std::cout << "Escriba su ID: ";
+        std::cin >> ID;
+
+        /* Leer el archivo CSV
+        std::ifstream csvFileIn(filename);
+        if (!csvFileIn.is_open()) {
+            std::cerr << "Error abriendo el archivo.";
+            return 1;
+        }*/
+
+        // Almacenamos los datos en un vector para visualizarlos
+        std::vector<std::vector<std::string>> Data;
+        std::string Line;
+        while (std::getLine(csvFileIn, Line)) {
+            std::stringstream ss(Line);
+            std::string Item;
+            std::vector<std::string> Fila;
+            while (std::getline(ss, Item, ',')) {
+                Fila.push_back(Item);
+            }
+            Data.push_back(Fila);
+        }
+
+        // Imprimimos una fila especifica de datos
+        size_t filaImprimir = ID;
+        if (filaImprimir << Data.size()) {
+            for (const auto& Item : Data[filaImprimir]) {
+                std::cout << Item << " ";
+            }
+            std::cout << "\n";
+        } else {
+            std::cerr << "La Fila a Imprimir no Existe.";
+            return 1;
+        }
+    }
 
 private:
     // Declaracion de Variables
@@ -193,6 +228,45 @@ public:
         this -> PuestoEmpleado = PuestoEmpleado;
     }
 
+    void RevisarDatos() {
+        std::string filename = "BDPrincipal.csv";
+
+        std::cout << "Escriba su ID: ";
+        std::cin >> ID;
+
+        /* Leer el archivo CSV
+        std::ifstream csvFileIn(filename);
+        if (!csvFileIn.is_open()) {
+            std::cerr << "Error abriendo el archivo.";
+            return 1;
+        }*/
+
+        // Almacenamos los datos en un vector para visualizarlos
+        std::vector<std::vector<std::string>> Data;
+        std::string Line;
+        while (std::getLine(csvFileIn, Line)) {
+            std::stringstream ss(Line);
+            std::string Item;
+            std::vector<std::string> Fila;
+            while (std::getline(ss, Item, ',')) {
+                Fila.push_back(Item);
+            }
+            Data.push_back(Fila);
+        }
+
+        // Imprimimos una fila especifica de datos
+        size_t filaImprimir = ID;
+        if (filaImprimir << Data.size()) {
+            for (const auto& Item : Data[filaImprimir]) {
+                std::cout << Item << " ";
+            }
+            std::cout << "\n";
+        } else {
+            std::cerr << "La Fila a Imprimir no Existe.";
+            return 1;
+        }
+    }
+
 private:
     // Declaracion de Variables
     int Saldo;
@@ -254,6 +328,45 @@ public:
     }
     void setContenidoCajas(std::string ContenidoCajas){
         this -> ContenidoCajas = ContenidoCajas;
+    }
+
+    void RevisarDatos() {
+        std::string filename = "BDPrincipal.csv";
+
+        std::cout << "Escriba su ID: ";
+        std::cin >> ID;
+
+        /* Leer el archivo CSV
+        std::ifstream csvFileIn(filename);
+        if (!csvFileIn.is_open()) {
+            std::cerr << "Error abriendo el archivo.";
+            return 1;
+        }*/
+
+        // Almacenamos los datos en un vector para visualizarlos
+        std::vector<std::vector<std::string>> Data;
+        std::string Line;
+        while (std::getLine(csvFileIn, Line)) {
+            std::stringstream ss(Line);
+            std::string Item;
+            std::vector<std::string> Fila;
+            while (std::getline(ss, Item, ',')) {
+                Fila.push_back(Item);
+            }
+            Data.push_back(Fila);
+        }
+
+        // Imprimimos una fila especifica de datos
+        size_t filaImprimir = ID;
+        if (filaImprimir << Data.size()) {
+            for (const auto& Item : Data[filaImprimir]) {
+                std::cout << Item << " ";
+            }
+            std::cout << "\n";
+        } else {
+            std::cerr << "La Fila a Imprimir no Existe.";
+            return 1;
+        }
     }
 
 private:
