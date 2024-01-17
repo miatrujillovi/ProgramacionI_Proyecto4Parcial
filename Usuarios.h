@@ -295,6 +295,168 @@ public:
         this -> Despedir = Despedir;
     }
 
+    void ContratarEmpleado(){
+        std::string filename = "BDPrincipal.csv";
+
+        // Ingresar Datos del Empleado
+        std::cout << "Ingrese los nuevos datos del Empleado procurando separar los datos con una coma (Puesto, Nombre, Dirección, Estado Civil, RFC, Salario, Numero de Cuenta, Numero de Seguro Social, Dia de Contratación, Mes de Contratación, Año de Contratación y Estado Actual en la Empresa): "
+        std::string userInput;
+        std::getline(std::cin, userInput);
+
+        // Utiilizamos un stringstream para dividir los datos ingresados
+        std::stringstream ss(userInput);
+        std::vector<std::string> NewEmpleado;
+        while (std::getline(ss, userInput, ',')) {
+            newEmpleado.push_back(userInput);
+        }
+
+        // Abrimos la BD para ingresar los datos
+        std::ofstream csvFile(filename, std::ios::app);
+
+        if (!csvFile.is_open()) {
+            std::cerr << "Error al abrir la Base de Datos" << filename << std::endl;
+            return 1;
+        }
+
+        for (size_t i = 1; i < newEmpleado.size(); i++) {
+            csvFile << newEmpleado[i];
+            if (i < newEmpleado.size() - 1){
+                csvFile << ",";
+            }
+        }
+        csvFile << "\n";
+        // Cerramos la BD
+        csvFile.close();
+
+        std::cout << "¡Empleado agregado exitosamente!";
+    }
+
+    void DespedirEmpleado(){
+        std::string filename = "BDPrincipal.csv";
+
+        std::cout << "Escriba el ID del empleado a quien desea despedir: "
+        std::cin >> ID;
+
+        /* Leer el archivo CSV
+        std::ifstream csvFileIn(filename);
+        if (!csvFileIn.is_open()) {
+            std::cerr << "Error abriendo el archivo.";
+            return 1;
+        }*/
+
+        // Almacenamos los datos en un vector para poder modificarlos
+        std::vector<std::vector<std::string>> Data;
+        std::string Line;
+        while (std::getLine(csvFileIn, Line)) {
+            std::stringstream ss(Line);
+            std::string Item;
+            std::vector<std::string> Fila;
+            while (std::getline(ss, Item, ',')) {
+                Fila.push_back(Item);
+            }
+            Data.push_back(Fila);
+        }
+
+        //Acomodamos los datos de la filas y columnas para cambiar el estado del empleado.
+        size_t filaModificar = ID;
+        size_t colModificar = 12;
+
+        if (filaModificar < Data.size() && colModificar < Data[filaModificar].size()) {
+            Data[filaModificar][colModificar] = "Despedido";
+        } else {
+            std::cerr << "La posición a modificar no existe.";
+            return 1;
+        }
+
+        // Procedimiento para guardar los nuevos datos modificados en la BD
+        std::ofstream csvFileOut(filename);
+        if (!csvFileOut.is_open()) {
+            std::cerr << "Error al abrir la Base de Datos.";
+            return 1;
+        }
+
+        for (const auto& Fila : Data) {
+            for (size_t i = 0; i < Fila.size(); i++) {
+                csvFileOut << ",";
+            }
+        }
+        csvFileOut << "\n";
+        csvFileOut.close();
+        std::cout << "¡Procedimiento exitoso!";
+    }
+
+    void RevisarDatosEmpleados() {
+        std::string filename = "BDPrincipal.csv";
+
+        /* Leer el archivo CSV
+        std::ifstream csvFileIn(filename);
+        if (!csvFileIn.is_open()) {
+            std::cerr << "Error abriendo el archivo.";
+            return 1;
+        }*/
+
+        // Almacenamos los datos en un vector para visualizarlos
+        std::vector<std::vector<std::string>> Data;
+        std::string Line;
+        while (std::getLine(csvFileIn, Line)) {
+            std::stringstream ss(Line);
+            std::string Item;
+            std::vector<std::string> Fila;
+            while (std::getline(ss, Item, ',')) {
+                Fila.push_back(Item);
+            }
+            Data.push_back(Fila);
+        }
+
+        // Imprime la base de datos actual
+        std::cout << "Datos de los Empleados Actuales:\n";
+        for (const auto& Fila : Data) {
+            for (const auto& Item : Fila) {
+                std::cout << Item << " ";
+            }
+            std::cout << "\n";
+        }
+    }
+
+    void RevisarDatos() {
+        std::string filename = "BDPrincipal.csv";
+
+        std::cout << "Escriba su ID: ";
+        std::cin >> ID;
+
+        /* Leer el archivo CSV
+        std::ifstream csvFileIn(filename);
+        if (!csvFileIn.is_open()) {
+            std::cerr << "Error abriendo el archivo.";
+            return 1;
+        }*/
+
+        // Almacenamos los datos en un vector para visualizarlos
+        std::vector<std::vector<std::string>> Data;
+        std::string Line;
+        while (std::getLine(csvFileIn, Line)) {
+            std::stringstream ss(Line);
+            std::string Item;
+            std::vector<std::string> Fila;
+            while (std::getline(ss, Item, ',')) {
+                Fila.push_back(Item);
+            }
+            Data.push_back(Fila);
+        }
+
+        // Imprimimos una fila especifica de datos
+        size_t filaImprimir = ID;
+        if (filaImprimir << Data.size()) {
+            for (const auto& Item : Data[filaImprimir]) {
+                std::cout << Item << " ";
+            }
+            std::cout << "\n";
+        } else {
+            std::cerr << "La Fila a Imprimir no Existe.";
+            return 1;
+        }
+    }
+
 private:
     // Declaración de Variables
     std::string Contratar;
