@@ -28,4 +28,8 @@ Cambios del 16/01/24:
 - Se modifico la función CreateDB para agregar números secuenciales en la base de datos.
 - Se modifico el for en el método ContratarEmpleado en Usuarios.h
 - Se modifico el método DespedirEmpleado para hacer su función correctamente en Usuarios.h
-- 
+- Se modifico un error en el constructor explicito de Jefe en Usuarios.h
+- Se creo el método DescenderEmpleado en Usuarios.h
+- Se creo el método AscenderEmpleado en Usuarios.h
+- Se creo el método RevisarDatosEmpleados en Usuarios.h
+- Se creo el método de RevisarDatos en Usuarios.h
