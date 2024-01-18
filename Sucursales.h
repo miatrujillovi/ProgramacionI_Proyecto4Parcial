@@ -36,10 +36,6 @@ std::cout << "insano";
     
 };
 
-
-
-
-
 int main(){
 Menu();  
     
@@ -47,7 +43,55 @@ Menu();
     
 }
 
+#include <iostream>
+#include <string>
 
+class Sucursal {
+
+public:
+    Sucursal(const std::string& Nombre, int Alambrecobre, int TuboPbc)
+            : Nombre(Nombre), NumeroAlambreCobre(AlambreCobre), NumeroTuboPbc(TuboPbc) {}
+
+    void verinventario()
+    {
+        std::cout << "Inventario de la sucursal " << nombre << endl;
+        std::cout << "Alambre de Cobre: " << cantidadTomates << endl;
+        std::cout << "Tubo PBC: " << cantidadLechugas << endl;
+    }
+
+    void modinventario()
+    {
+        int NewAlambreCobre, NewTuboPbc;
+        std::cout << "Ingrese la nueva cantidad: ";
+        std::cin >> NewAlambreCobre;
+        std::cout << "Ingrese la nueva cantidad: ";
+        std::cin >> NewTuboPbc;
+        NumeroAlambreCobre = NewAlambreCobre;
+        NumeroTuboPbc = NewTuboPbc;
+        std::cout << "Inventario actualizado correctamente." << endl;
+    }
+
+private:
+    std::string Nombre;
+    int NumeroAlambreCobre;
+    int NumeroTuboPbc;
+
+};
+
+Sucursal sucursal1("Sucursal Patria", 21, 42);
+Sucursal sucursal2("Sucursal Inglaterra", 11, 31);
+Sucursal sucursal3("Sucursal Mixticotl", 16, 27);
+
+void EleguirSucursal(){
+    int opcion;
+    std::cout << "Seleccione una sucursal (1, 2 o 3):\n";
+    std::cout << "1. " << sucursal1.mostrarInventario() << endl;
+    std::cout << "2. " << sucursal2.mostrarInventario() << endl;
+    std::cout << "3. " << sucursal3.mostrarInventario() << endl;
+    std::cin >> opcion;
+
+}
+#endif
 
 
 //Inventarios
