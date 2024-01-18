@@ -58,6 +58,7 @@ void ElegirSucursal(){
     switch(opcion){
         case 1:{
             sucursal1.verinventario();
+            //ElegirModificar();
         }
             break;
         case 2:{
@@ -71,8 +72,6 @@ void ElegirSucursal(){
         default:
             exit ( 0);
     }
-
-}
-
+}:
 #endif
 
