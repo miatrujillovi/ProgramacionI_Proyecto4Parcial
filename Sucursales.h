@@ -47,22 +47,22 @@ void EleguirSucursal(){
     std::cout << "|  Sucursal Arboles (3)  |" << std::endl;
     std::cout << "|                        |" << std::endl;
     std::cout << "    Eligue Sucursal  ";
-    std::cin >> sucursal;
+    std::cin >> opcion;
     std::cout << "|                        |" << std::endl;
     std::cout << "==========================" << std::endl;
 
 
-    switch(sucursal){
+    switch(opcion){
         case 1:{
-            std::cout << "tilin insano";
+            std::cout << ;
         }
             break;
         case 2:{
-            std::cout << "tilin";
+            std::cout << ;
         }
             break;
         case 3:{
-            std::cout << "insano";
+            std::cout << ;
         }
             break;
         default:
@@ -70,14 +70,6 @@ void EleguirSucursal(){
     }
 
 };
-
-void EleguirSucursal(){
-    int opcion;
-    std::cout << "Seleccione una sucursal (1, 2 o 3):\n";
-    std::cout << "1. " << sucursal1.mostrarInventario() << endl;
-    std::cout << "2. " << sucursal2.mostrarInventario() << endl;
-    std::cout << "3. " << sucursal3.mostrarInventario() << endl;
-    std::cin >> opcion;
 
 }
 
