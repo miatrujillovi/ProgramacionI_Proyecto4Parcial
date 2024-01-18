@@ -74,5 +74,6 @@ void TestMenu() {
 }
 
 int main(){
-    CreateDB();
+
+    return 0;
 }

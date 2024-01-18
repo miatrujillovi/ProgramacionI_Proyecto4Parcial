@@ -125,12 +125,12 @@ public:
         std::cout << "Escriba su ID: ";
         std::cin >> ID;
 
-        /* Leer el archivo CSV
+        // Leer el archivo CSV
         std::ifstream csvFileIn(filename);
         if (!csvFileIn.is_open()) {
             std::cerr << "Error abriendo el archivo.";
             return 1;
-        }*/
+        }
 
         // Almacenamos los datos en un vector para visualizarlos
         std::vector<std::vector<std::string>> Data;
@@ -234,12 +234,12 @@ public:
         std::cout << "Escriba su ID: ";
         std::cin >> ID;
 
-        /* Leer el archivo CSV
+        // Leer el archivo CSV
         std::ifstream csvFileIn(filename);
         if (!csvFileIn.is_open()) {
             std::cerr << "Error abriendo el archivo.";
             return 1;
-        }*/
+        }
 
         // Almacenamos los datos en un vector para visualizarlos
         std::vector<std::vector<std::string>> Data;
@@ -336,12 +336,12 @@ public:
         std::cout << "Escriba su ID: ";
         std::cin >> ID;
 
-        /* Leer el archivo CSV
+        // Leer el archivo CSV
         std::ifstream csvFileIn(filename);
         if (!csvFileIn.is_open()) {
             std::cerr << "Error abriendo el archivo.";
             return 1;
-        }*/
+        }
 
         // Almacenamos los datos en un vector para visualizarlos
         std::vector<std::vector<std::string>> Data;
@@ -450,12 +450,12 @@ public:
         std::cout << "Escriba el ID del empleado a quien desea despedir: "
         std::cin >> ID;
 
-        /* Leer el archivo CSV
+        // Leer el archivo CSV
         std::ifstream csvFileIn(filename);
         if (!csvFileIn.is_open()) {
             std::cerr << "Error abriendo el archivo.";
             return 1;
-        }*/
+        }
 
         // Almacenamos los datos en un vector para poder modificarlos
         std::vector<std::vector<std::string>> Data;
@@ -501,12 +501,12 @@ public:
     void RevisarDatosEmpleados() {
         std::string filename = "BDPrincipal.csv";
 
-        /* Leer el archivo CSV
+        // Leer el archivo CSV
         std::ifstream csvFileIn(filename);
         if (!csvFileIn.is_open()) {
             std::cerr << "Error abriendo el archivo.";
             return 1;
-        }*/
+        }
 
         // Almacenamos los datos en un vector para visualizarlos
         std::vector<std::vector<std::string>> Data;
@@ -537,12 +537,12 @@ public:
         std::cout << "Escriba su ID: ";
         std::cin >> ID;
 
-        /* Leer el archivo CSV
+        // Leer el archivo CSV
         std::ifstream csvFileIn(filename);
         if (!csvFileIn.is_open()) {
             std::cerr << "Error abriendo el archivo.";
             return 1;
-        }*/
+        }
 
         // Almacenamos los datos en un vector para visualizarlos
         std::vector<std::vector<std::string>> Data;
@@ -664,12 +664,12 @@ public:
         std::cout << "Escriba el ID del empleado a quien desea despedir: "
         std::cin >> ID;
 
-        /* Leer el archivo CSV
+        // Leer el archivo CSV
         std::ifstream csvFileIn(filename);
         if (!csvFileIn.is_open()) {
             std::cerr << "Error abriendo el archivo.";
             return 1;
-        }*/
+        }
 
         // Almacenamos los datos en un vector para poder modificarlos
         std::vector<std::vector<std::string>> Data;
@@ -720,12 +720,12 @@ public:
         std::cout << "Escriba el nuevo puesto del Empleado: "
         std::cin >> NewPuesto;
 
-        /* Leer el archivo CSV
+        // Leer el archivo CSV
         std::ifstream csvFileIn(filename);
         if (!csvFileIn.is_open()) {
             std::cerr << "Error abriendo el archivo.";
             return 1;
-        }*/
+        }
 
         // Almacenamos los datos en un vector para poder modificarlos
         std::vector<std::vector<std::string>> Data;
@@ -776,12 +776,12 @@ public:
         std::cout << "Escriba el nuevo puesto del Empleado: "
         std::cin >> NewPuesto;
 
-        /* Leer el archivo CSV
+        // Leer el archivo CSV
         std::ifstream csvFileIn(filename);
         if (!csvFileIn.is_open()) {
             std::cerr << "Error abriendo el archivo.";
             return 1;
-        }*/
+        }
 
         // Almacenamos los datos en un vector para poder modificarlos
         std::vector<std::vector<std::string>> Data;
@@ -827,12 +827,12 @@ public:
     void RevisarDatosEmpleados() {
         std::string filename = "BDPrincipal.csv";
 
-        /* Leer el archivo CSV
+        // Leer el archivo CSV
         std::ifstream csvFileIn(filename);
         if (!csvFileIn.is_open()) {
             std::cerr << "Error abriendo el archivo.";
             return 1;
-        }*/
+        }
 
         // Almacenamos los datos en un vector para visualizarlos
         std::vector<std::vector<std::string>> Data;
@@ -863,12 +863,12 @@ public:
         std::cout << "Escriba su ID: ";
         std::cin >> ID;
 
-        /* Leer el archivo CSV
+        // Leer el archivo CSV
         std::ifstream csvFileIn(filename);
         if (!csvFileIn.is_open()) {
             std::cerr << "Error abriendo el archivo.";
             return 1;
-        }*/
+        }
 
         // Almacenamos los datos en un vector para visualizarlos
         std::vector<std::vector<std::string>> Data;
