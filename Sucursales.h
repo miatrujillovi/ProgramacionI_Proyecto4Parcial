@@ -5,18 +5,19 @@
 #include <iostream>
 #include <string>
 
+//Clase madre de la sucursal
 class Sucursal {
 public:
     Sucursal(const std::string& Nombre, int Alambrecobre, int TuboPbc)
             : Nombre(Nombre), NumeroAlambreCobre(AlambreCobre), NumeroTuboPbc(TuboPbc) {}
-
+//funcion para ver las cantidades de las variables
     void verinventario()
     {
         std::cout << "Inventario de la sucursal " << nombre << endl;
         std::cout << "Alambre de Cobre: " << cantidadTomates << endl;
         std::cout << "Tubo PBC: " << cantidadLechugas << endl;
     }
-
+//funcion para modificar las cantidades de las variables
     void modinventario()
     {
         int NewAlambreCobre, NewTuboPbc;
@@ -33,14 +34,14 @@ private:
     std::string Nombre;
     int NumeroAlambreCobre;
     int NumeroTuboPbc;
-
 };
 
-    //Sucursal sucursal1("Sucursal Patria", 21, 42);
-    //Sucursal sucursal2("Sucursal Inglaterra", 11, 31);
-    //Sucursal sucursal3("Sucursal Mixticotl", 16, 27);
+Sucursal sucursal1("Sucursal Patria", 21, 42);
+Sucursal sucursal2("Sucursal Inglaterra", 11, 31);
+Sucursal sucursal3("Sucursal Mixticotl", 16, 27);
 
-void EleguirSucursal(){
+//funcion para eleguir que sucursal se va a trabajar
+void ElegirSucursal(){
     int opcion;
     std::cout << std::endl << "======= INVENTARIO =======" << std::endl;
     std::cout << "|                        |" << std::endl;
@@ -53,17 +54,18 @@ void EleguirSucursal(){
     std::cout << "|                        |" << std::endl;
     std::cout << "==========================" << std::endl;
 
+//switch para comprobar que sucursal se eligio
     switch(opcion){
         case 1:{
-            std::cout << ;
+            sucursal1.verinventario();
         }
             break;
         case 2:{
-            std::cout << ;
+            sucursal2.verinventario();
         }
             break;
         case 3:{
-            std::cout << ;
+            sucursal3.verinventario();
         }
             break;
         default:
@@ -73,10 +75,4 @@ void EleguirSucursal(){
 }
 
 #endif
-//Inventarios
-//Sucursal 1 2 3
 
-//Cosa 1 (cantidad)
-//Cosa 2 (cantidad)
-//Cosa 3 (cantidad)
-//Cambiar Inventario
