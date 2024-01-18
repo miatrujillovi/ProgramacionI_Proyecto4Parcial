@@ -4,12 +4,54 @@
 #include <string>
 #include <vector>
 
-void createDatabaseFile() {
-    std::ifstream file("Datos.csv");
-    if (!file.good()) {
-        std::ofstream outfile("Datos.csv");
-        outfile << "Nombre,Apellido,Posicion,Lugar_de_trabajo,Contraseña,Horario_Laboral\n";
-        outfile.close();
+// Función que verifica la existencia de la base de datos, y si no, la crea.
+void CreateDB(){
+    std::string filename = "BDPrincipal.csv";
+
+    // Verificamos si existe el archivo
+    std::ifstream fileCheck(filename);
+    if (fileCheck.good()){
+
+    } else {
+        std::ofstream csvFile(filename);
+
+        if (!csvFile.is_open()) {
+            std::cerr << "Error al abrir Base de Datos" << std::endl;
+        }
+
+        // Creamos los encabezados de la base de datos
+        /*std::vector<std::string> headers = {"ID", "Puesto", "Nombre", "Direccion", "EstadoCivil", "RFC", "Salario", "NumeroCuenta", "NumeroSeguroSocial", "FechaContratacion_Dia", "FechaContratacion_Mes", "FechaContratacion_Year", "EstadoEmpresa"};
+        for (size_t i = 0; i < headers.size(); i++) {
+            csvFile << headers[i];
+            if (i < headers_size() -1) {
+                csvFile << ",";
+            }
+        }
+        csvFile << "\n";*/
+        csvFile.close();
+    }
+}
+
+/* Tomado de mi main.cpp, solo usenla para testear que los menús funcionen correctamente
+ *
+ * Si jala a la primera, soy la reata.
+ * Si no jala a la primera... es tu PC, en la mia si corre bien :D
+ *
+ * */
+
+void TestMenu() {
+    int option;
+
+    std::cout << "[DEBUG] Escoge un menu" << std::endl;
+    std::cout << "[1] Menu gerente" << std::endl;
+    std::cout << "[2] Menu jefe" << std::endl;
+
+    std::cin >> option;
+
+    if(option == 1) {
+        MenuGerente();
+    } else if(option == 2) {
+        MenuJefe();
     }
 }
 

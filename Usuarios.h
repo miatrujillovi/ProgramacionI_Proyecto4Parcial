@@ -452,6 +452,23 @@ public:
             }
         }
         csvFile << "\n";
+
+        // Agregamos números secuenciales en la columna de ID
+        size_t UpdateCol = 0;
+        for (size_t i = 0; i < NewEmpleado(); i++) {
+            NewEmpleado[i][UpdateCol] = std::to_string(i + 1);
+        }
+
+        for (const auto& fila : NewEmpleado) {
+            for (size_t i = 0; i < fila.size(); i++) {
+                csvFile << fila[i];
+                if (i < fila.size() - 1) {
+                    csvFile << ",";
+                }
+            }
+            csvFile << "\n";
+        }
+
         // Cerramos la BD
         csvFile.close();
 
@@ -666,6 +683,23 @@ public:
             }
         }
         csvFile << "\n";
+
+        // Agregamos números secuenciales en la columna de ID
+        size_t UpdateCol = 0;
+        for (size_t i = 0; i < NewEmpleado(); i++) {
+            NewEmpleado[i][UpdateCol] = std::to_string(i + 1);
+        }
+
+        for (const auto& fila : NewEmpleado) {
+            for (size_t i = 0; i < fila.size(); i++) {
+                csvFile << fila[i];
+                if (i < fila.size() - 1) {
+                    csvFile << ",";
+                }
+            }
+            csvFile << "\n";
+        }
+
         // Cerramos la BD
         csvFile.close();
 
