@@ -1,51 +1,9 @@
 //Libreria Sucursales
-#include <iostream>
-#include <string>
-
-
-void Menu(){
-    int sucursal;
-    std::cout << std::endl << "======= INVENTARIO =======" << std::endl;
-    std::cout << "|                        |" << std::endl;    
-    std::cout << "|  Sucursal Aguilas (1)  |" << std::endl;     
-    std::cout << "|  Sucursal Fuentes (2)  |" << std::endl; 
-    std::cout << "|  Sucursal Arboles (3)  |" << std::endl; 
-    std::cout << "|                        |" << std::endl;
-    std::cout << "    Eligue Sucursal  ";
-    std::cin >> sucursal;
-    std::cout << "|                        |" << std::endl; 
-    std::cout << "==========================" << std::endl;
-    
-    
-    switch(sucursal){
-        case 1:{
-std::cout << "tilin insano";
-        }
-            break;
-        case 2:{
-std::cout << "tilin";
-        }
-            break;
-        case 3:{
-std::cout << "insano";
-        }
-            break;
-        default:
-            exit ( 0);
-    }    
-    
-};
-
-int main(){
-Menu();  
-
-}
 
 #include <iostream>
 #include <string>
 
 class Sucursal {
-
 public:
     Sucursal(const std::string& Nombre, int Alambrecobre, int TuboPbc)
             : Nombre(Nombre), NumeroAlambreCobre(AlambreCobre), NumeroTuboPbc(TuboPbc) {}
@@ -76,9 +34,42 @@ private:
 
 };
 
-Sucursal sucursal1("Sucursal Patria", 21, 42);
-Sucursal sucursal2("Sucursal Inglaterra", 11, 31);
-Sucursal sucursal3("Sucursal Mixticotl", 16, 27);
+    Sucursal sucursal1("Sucursal Patria", 21, 42);
+    Sucursal sucursal2("Sucursal Inglaterra", 11, 31);
+    Sucursal sucursal3("Sucursal Mixticotl", 16, 27);
+
+void EleguirSucursal(){
+    int opcion;
+    std::cout << std::endl << "======= INVENTARIO =======" << std::endl;
+    std::cout << "|                        |" << std::endl;
+    std::cout << "|  Sucursal Aguilas (1)  |" << std::endl;
+    std::cout << "|  Sucursal Fuentes (2)  |" << std::endl;
+    std::cout << "|  Sucursal Arboles (3)  |" << std::endl;
+    std::cout << "|                        |" << std::endl;
+    std::cout << "    Eligue Sucursal  ";
+    std::cin >> sucursal;
+    std::cout << "|                        |" << std::endl;
+    std::cout << "==========================" << std::endl;
+
+
+    switch(sucursal){
+        case 1:{
+            std::cout << "tilin insano";
+        }
+            break;
+        case 2:{
+            std::cout << "tilin";
+        }
+            break;
+        case 3:{
+            std::cout << "insano";
+        }
+            break;
+        default:
+            exit ( 0);
+    }
+
+};
 
 void EleguirSucursal(){
     int opcion;
@@ -89,8 +80,6 @@ void EleguirSucursal(){
     std::cin >> opcion;
 
 }
-#endif
-
 
 //Inventarios
 //Sucursal 1 2 3
