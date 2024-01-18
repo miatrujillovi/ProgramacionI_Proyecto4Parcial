@@ -119,6 +119,20 @@ public:
         this -> FechaContratacion_Year = FechaContratacion_Year;
     }
 
+    void SalarioEmpleado(){
+        std::string filename = "BDPrincipal.csv";
+
+        std::cout << "Escriba su ID: ";
+        std::cin >> ID;
+
+        //
+        std::ifstream csvFileIn (filename);
+        if (!csvFileIn.is_open()){
+            std::cerr << "Error abriendo el archivo";
+            return 1;
+        }
+    }
+
     void RevisarDatos() {
         std::string filename = "BDPrincipal.csv";
 
