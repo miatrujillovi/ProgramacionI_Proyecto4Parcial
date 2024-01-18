@@ -38,9 +38,7 @@ std::cout << "insano";
 
 int main(){
 Menu();  
-    
 
-    
 }
 
 #include <iostream>
