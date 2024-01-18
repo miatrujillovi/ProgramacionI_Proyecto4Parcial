@@ -5,7 +5,7 @@
 #ifndef PROGRAMACIONI_PROYECTO4PARCIAL_MENU_H
 #define PROGRAMACIONI_PROYECTO4PARCIAL_MENU_H
 
-#include "../Usuarios.h"
+#include "Usuarios.h"
 #include <string>
 
 // FUNCIONES GERENTE
