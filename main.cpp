@@ -50,5 +50,6 @@ void CreateDB(){
 }
 
 int main(){
-    CreateDB();
+
+    return 0;
 }
