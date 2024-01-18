@@ -36,9 +36,9 @@ private:
 
 };
 
-    Sucursal sucursal1("Sucursal Patria", 21, 42);
-    Sucursal sucursal2("Sucursal Inglaterra", 11, 31);
-    Sucursal sucursal3("Sucursal Mixticotl", 16, 27);
+    //Sucursal sucursal1("Sucursal Patria", 21, 42);
+    //Sucursal sucursal2("Sucursal Inglaterra", 11, 31);
+    //Sucursal sucursal3("Sucursal Mixticotl", 16, 27);
 
 void EleguirSucursal(){
     int opcion;
@@ -52,7 +52,6 @@ void EleguirSucursal(){
     std::cin >> opcion;
     std::cout << "|                        |" << std::endl;
     std::cout << "==========================" << std::endl;
-
 
     switch(opcion){
         case 1:{
@@ -70,8 +69,6 @@ void EleguirSucursal(){
         default:
             exit ( 0);
     }
-
-};
 
 }
 
