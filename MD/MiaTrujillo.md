@@ -36,3 +36,7 @@ Cambios del 16/01/24:
 
 Cambios del 17/01/24: 
 - Se creo el método ContratarEmpleado, DespedirEmpleado, RevisarDatosEmpleado y RevisarDatos en la clase Gerente de Usuarios.h  
+
+Cambios del 18/01/24: 
+- Borre la función CreateDB de int main en main.cpp
+- Saque parte de los métodos de Usuarios.h de comentarios, especificamente para Leer la BD.
