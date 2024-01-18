@@ -1,4 +1,6 @@
 //Libreria Sucursales
+#ifndef PROGRAMACIONI_PROYECTO4PARCIAL_SUCURSALES_H
+#define PROGRAMACIONI_PROYECTO4PARCIAL_SUCURSALES_H
 
 #include <iostream>
 #include <string>
@@ -73,6 +75,7 @@ void EleguirSucursal(){
 
 }
 
+#endif
 //Inventarios
 //Sucursal 1 2 3
 
