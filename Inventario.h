@@ -67,8 +67,6 @@ public:
             }
         }
 
-        // Agrega validación para valores no negativos aquí si es necesario
-
         NumeroAlambreCobre = NewAlambreCobre;
         NumeroTuboPbc = NewTuboPbc;
         std::cout << "Inventario actualizado correctamente." << std::endl;
@@ -78,10 +76,10 @@ private:
     int NumeroAlambreCobre;
     int NumeroTuboPbc;
 
-    // Función privada para limpiar el buffer de entrada
+
     void limpiarBufferEntrada() const {
-        std::cin.clear(); // Limpiar el indicador de error
-        while (std::cin.get() != '\n') ; // Descartar la entrada inválida hasta encontrar un salto de línea
+        std::cin.clear();
+        while (std::cin.get() != '\n') ; 
     }
 };
 
