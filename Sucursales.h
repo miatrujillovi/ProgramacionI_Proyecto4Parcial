@@ -72,6 +72,6 @@ void ElegirSucursal(){
         default:
             exit ( 0);
     }
-}:
+};
 #endif
 

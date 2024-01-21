@@ -35,7 +35,7 @@ public:
         this -> EstadoCivil = EstadoCivil;
         this -> RFC = RFC;
         this -> Puesto = Puesto;
-        this -> EstadoEmpresa = EstadoEmpresa
+        this -> EstadoEmpresa = EstadoEmpresa;
         this -> Salario = Salario;
         this -> NumeroCuenta = NumeroCuenta;
         this -> NumeroSeguroSocial = NumeroSeguroSocial;
@@ -567,7 +567,7 @@ public:
 
         // Utiilizamos un stringstream para dividir los datos ingresados
         std::stringstream ss(userInput);
-        std::vector<std::string> NewEmpleado;
+        std::vector<std::string> newEmpleado;
         while (std::getline(ss, userInput, ',')) {
             newEmpleado.push_back(userInput);
         }
@@ -590,11 +590,11 @@ public:
 
         // Agregamos números secuenciales en la columna de ID
         size_t UpdateCol = 0;
-        for (size_t i = 0; i < NewEmpleado(); i++) {
-            NewEmpleado[i][UpdateCol] = std::to_string(i + 1);
+        for (size_t i = 0; i < newEmpleado(); i++) {
+            newEmpleado[i][UpdateCol] = std::to_string(i + 1);
         }
 
-        for (const auto& fila : NewEmpleado) {
+        for (const auto& fila : newEmpleado) {
             for (size_t i = 0; i < fila.size(); i++) {
                 csvFile << fila[i];
                 if (i < fila.size() - 1) {
