@@ -4,6 +4,7 @@
 #include <string>
 #include <vector>
 #include "Usuarios.h"
+#include "menu.h"
 
 void createDatabaseFile() {
     std::ifstream file("BDPrincipal.csv");
@@ -72,25 +73,25 @@ std::string Login() {
         return "";
     }
 }
+
+void openMenu(){
+
+    switch(rango) {
+        case 0:
+            MenuGerente();
+            break;
+
+        case 1:
+            MenuJefe();
+            break;
+    }
+
+};
 void LoginTotal() {
     createDatabaseFile();
     Login();
     openMenu();
 }
-
-void openMenu(){
-
-    switch(rango) {
-            case 0:
-                MenuGerente();
-                break;
-
-            case 1:
-                MenuJefe();
-                break;
-    }
-
-};
 
 int main() {
     LoginTotal();
