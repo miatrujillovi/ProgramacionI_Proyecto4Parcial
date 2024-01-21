@@ -234,7 +234,7 @@ public:
         std::ifstream csvFileIn(filename);
         if (!csvFileIn.is_open()) {
             std::cerr << "Error abriendo el archivo";
-            return 1;
+            return;
         }
 
         //Mostrar datos de BD
@@ -243,7 +243,7 @@ public:
             std::stringstream stream(linea);
 
             //Pedir o sacar datos de la BD
-            std::getline(stream, id, delimitador);
+            std::getline(stream, ID, delimitador);
             std::getline(stream, ConstanciaSituacionFiscal, delimitador);
 
             //Imprimir los datos que se solicitan
@@ -295,13 +295,13 @@ public:
         std::ifstream csvFileIn(filename);
         if (!csvFileIn.is_open()) {
             std::cerr << "Error abriendo el archivo.";
-            return 1;
+            return;
         }
 
         // Almacenamos los datos en un vector para visualizarlos
         std::vector<std::vector<std::string>> Data;
         std::string Line;
-        while (std::getLine(csvFileIn, Line)) {
+        while (std::getline(csvFileIn, Line)) {
             std::stringstream ss(Line);
             std::string Item;
             std::vector<std::string> Fila;
@@ -311,16 +311,15 @@ public:
             Data.push_back(Fila);
         }
 
-        // Imprimimos una fila especifica de datos
-        size_t filaImprimir = ID;
-        if (filaImprimir << Data.size()) {
+        // Imprimimos una fila específica de datos
+        size_t filaImprimir = std::stoull (ID);
+        if (filaImprimir < Data.size()) {
             for (const auto& Item : Data[filaImprimir]) {
                 std::cout << Item << " ";
             }
             std::cout << "\n";
         } else {
-            std::cerr << "La Fila a Imprimir no Existe.";
-            return 1;
+            std::cerr << "La Fila a Imprimir no Existe.\n";
         }
     }
 
@@ -374,7 +373,7 @@ public:
 
         if (!csvFile.is_open()) {
             std::cerr << "Error al abrir la Base de Datos" << filename << std::endl;
-            return 1;
+            return;
         }
 
         for (size_t i = 1; i < newEmpleado.size(); i++) {
@@ -387,7 +386,7 @@ public:
 
         // Agregamos números secuenciales en la columna de ID
         size_t UpdateCol = 0;
-        for (size_t i = 0; i < newEmpleado(); i++) {
+        for (size_t i = 0; i < newEmpleado.size(); i++) {
             newEmpleado[i][UpdateCol] = std::to_string(i + 1);
         }
 
@@ -410,20 +409,19 @@ public:
     void DespedirEmpleado(){
         std::string filename = "BDPrincipal.csv";
 
-        std::cout << "Escriba el ID del empleado a quien desea despedir: "
+        std::cout << "Escriba el ID del empleado a quien desea despedir: ";
         std::cin >> ID;
 
         // Leer el archivo CSV
         std::ifstream csvFileIn(filename);
         if (!csvFileIn.is_open()) {
             std::cerr << "Error abriendo el archivo.";
-            return 1;
         }
 
         // Almacenamos los datos en un vector para poder modificarlos
         std::vector<std::vector<std::string>> Data;
         std::string Line;
-        while (std::getLine(csvFileIn, Line)) {
+        while (std::getline(csvFileIn, Line)) {
             std::stringstream ss(Line);
             std::string Item;
             std::vector<std::string> Fila;
@@ -441,14 +439,14 @@ public:
             Data[filaModificar][colModificar] = "Despedido";
         } else {
             std::cerr << "La posición a modificar no existe.";
-            return 1;
+            return;
         }
 
         // Procedimiento para guardar los nuevos datos modificados en la BD
         std::ofstream csvFileOut(filename);
         if (!csvFileOut.is_open()) {
             std::cerr << "Error al abrir la Base de Datos.";
-            return 1;
+            return;
         }
 
         for (const auto& Fila : Data) {
@@ -473,7 +471,7 @@ public:
         // Almacenamos los datos en un vector para visualizarlos
         std::vector<std::vector<std::string>> Data;
         std::string Line;
-        while (std::getLine(csvFileIn, Line)) {
+        while (std::getline(csvFileIn, Line)) {
             std::stringstream ss(Line);
             std::string Item;
             std::vector<std::string> Fila;
@@ -503,13 +501,13 @@ public:
         std::ifstream csvFileIn(filename);
         if (!csvFileIn.is_open()) {
             std::cerr << "Error abriendo el archivo.";
-            return 1;
+            return;
         }
 
         // Almacenamos los datos en un vector para visualizarlos
         std::vector<std::vector<std::string>> Data;
         std::string Line;
-        while (std::getLine(csvFileIn, Line)) {
+        while (std::getline(csvFileIn, Line)) {
             std::stringstream ss(Line);
             std::string Item;
             std::vector<std::string> Fila;
@@ -519,16 +517,15 @@ public:
             Data.push_back(Fila);
         }
 
-        // Imprimimos una fila especifica de datos
+        // Imprimimos una fila específica de datos
         size_t filaImprimir = ID;
-        if (filaImprimir << Data.size()) {
+        if (filaImprimir < Data.size()) {
             for (const auto& Item : Data[filaImprimir]) {
                 std::cout << Item << " ";
             }
             std::cout << "\n";
         } else {
-            std::cerr << "La Fila a Imprimir no Existe.";
-            return 1;
+            std::cerr << "La Fila a Imprimir no Existe.\n";
         }
     }
 
@@ -809,13 +806,13 @@ public:
         std::ifstream csvFileIn(filename);
         if (!csvFileIn.is_open()) {
             std::cerr << "Error abriendo el archivo.";
-            return 1;
+            return;
         }
 
         // Almacenamos los datos en un vector para visualizarlos
         std::vector<std::vector<std::string>> Data;
         std::string Line;
-        while (std::getLine(csvFileIn, Line)) {
+        while (std::getline(csvFileIn, Line)) {
             std::stringstream ss(Line);
             std::string Item;
             std::vector<std::string> Fila;
@@ -825,16 +822,15 @@ public:
             Data.push_back(Fila);
         }
 
-        // Imprimimos una fila especifica de datos
+        // Imprimimos una fila específica de datos
         size_t filaImprimir = ID;
-        if (filaImprimir << Data.size()) {
+        if (filaImprimir < Data.size()) {
             for (const auto& Item : Data[filaImprimir]) {
                 std::cout << Item << " ";
             }
             std::cout << "\n";
         } else {
-            std::cerr << "La Fila a Imprimir no Existe.";
-            return 1;
+            std::cerr << "La Fila a Imprimir no Existe.\n";
         }
     }
 
