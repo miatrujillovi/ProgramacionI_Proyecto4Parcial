@@ -119,19 +119,6 @@ public:
         this -> FechaContratacion_Year = FechaContratacion_Year;
     }
 
-    void SalarioEmpleado(){
-        std::string filename = "BDPrincipal.csv";
-
-        std::cout << "Escriba su ID: ";
-        std::cin >> ID;
-
-        //
-        std::ifstream csvFileIn (filename);
-        if (!csvFileIn.is_open()){
-            std::cerr << "Error abriendo el archivo";
-            return 1;
-        }
-    }
 
     void RevisarDatos() {
         std::string filename = "BDPrincipal.csv";
@@ -281,6 +268,63 @@ public:
         }
     }
 
+    void SalarioEmpleado() {
+        std::string filename = "BDPrincipal.csv";
+
+        std::cout << "Escriba su ID: ";
+        std::cin >> ID;
+
+        //
+        std::ifstream csvFileIn(filename);
+        if (!csvFileIn.is_open()) {
+            std::cerr << "Error abriendo el archivo";
+            return 1;
+        }
+    }
+
+    void Sucursales() {
+        std::string filename = "BDPrincipal.csv";
+
+        std::cout << "Escriba su ID: ";
+        std::cin >> ID;
+
+        //
+        std::ifstream csvFileIn(filename);
+        if (!csvFileIn.is_open()) {
+            std::cerr << "Error abriendo el archivo";
+            return 1;
+        }
+    }
+
+    void ClavesSAT() {
+        std::string filename = "BDPrincipal.csv";
+
+        std::cout << "Escriba su ID: ";
+        std::cin >> ID;
+
+        //
+        std::ifstream csvFileIn(filename);
+        if (!csvFileIn.is_open()) {
+            std::cerr << "Error abriendo el archivo";
+            return 1;
+        }
+    }
+
+    void ConstanciaSituacionesFiscales() {
+        std::string filename = "BDPrincipal.csv";
+
+        std::cout << "Escriba su ID: ";
+        std::cin >> ID;
+
+        //
+        std::ifstream csvFileIn(filename);
+        if (!csvFileIn.is_open()) {
+            std::cerr << "Error abriendo el archivo";
+            return 1;
+        }
+    }
+
+
 private:
     // Declaracion de Variables
     int Saldo;
@@ -379,6 +423,34 @@ public:
             std::cout << "\n";
         } else {
             std::cerr << "La Fila a Imprimir no Existe.";
+            return 1;
+        }
+    }
+
+    void Inventario() {
+        std::string filename = "BDPrincipal.csv";
+
+        std::cout << "Escriba su ID: ";
+        std::cin >> ID;
+
+        //
+        std::ifstream csvFileIn(filename);
+        if (!csvFileIn.is_open()) {
+            std::cerr << "Error abriendo el archivo";
+            return 1;
+        }
+    }
+
+    void ContenidoInventario() {
+        std::string filename = "BDPrincipal.csv";
+
+        std::cout << "Escriba su ID: ";
+        std::cin >> ID;
+
+        //
+        std::ifstream csvFileIn(filename);
+        if (!csvFileIn.is_open()) {
+            std::cerr << "Error abriendo el archivo";
             return 1;
         }
     }
