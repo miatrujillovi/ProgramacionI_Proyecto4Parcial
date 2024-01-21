@@ -26,7 +26,7 @@ public:
     }
 
     // Función para elegir qué sucursal se va a trabajar
-    static void ElegirSucursal() {
+      void ElegirSucursal() {
         int opcion;
         std::cout << std::endl << "======= INVENTARIO =======" << std::endl;
         std::cout << "|                        |" << std::endl;

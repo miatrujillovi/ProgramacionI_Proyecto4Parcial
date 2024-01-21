@@ -1,8 +1,10 @@
 #pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wuninitialized"
 #pragma clang diagnostic ignored "-Winaccessible-base"
 #ifndef PROGRAMACIONI_PROYECTO4PARCIAL_USUARIOS_H
 #define PROGRAMACIONI_PROYECTO4PARCIAL_USUARIOS_H
 
+#include <iostream>
 #include <iostream>
 #include <string>
 #include <vector>
@@ -10,38 +12,39 @@
 #include <sstream>
 #include "Sucursales.h"
 
-class Empleado{
+class Empleado {
 public:
-    // Constructor Implicito de Empleado
-    Empleado(){
-        this -> Nombre = "N/A";
-        this -> Direccion = "N/A";
-        this -> EstadoCivil = "N/A";
-        this -> RFC = "N/A";
-        this -> Puesto = "N/A";
-        this -> EstadoEmpresa = "N/A";
-        this -> Salario = 0;
-        this -> NumeroCuenta = 0;
-        this -> NumeroSeguroSocial = 0;
-        this -> FechaContratacion_Dia = 0;
-        this -> FechaContratacion_Mes = 0;
-        this -> FechaContratacion_Year = 0;
+    // Constructor Implícito de Empleado
+    Empleado() {
+        this->ID="N/A";
+        this->Nombre = "N/A";
+        this->Direccion = "N/A";
+        this->EstadoCivil = "N/A";
+        this->RFC = "N/A";
+        this->Puesto = "N/A";
+        this->EstadoEmpresa = "N/A";
+        this->Salario = "N/A";
+        this->NumeroCuenta = 0;
+        this->NumeroSeguroSocial = 0;
+        this->FechaContratacion_Dia = 0;
+        this->FechaContratacion_Mes = 0;
+        this->FechaContratacion_Year = 0;
     }
 
-    // Constructor Explicito de Empleado
-    Empleado(std::string Nombre, std::string Direccion, std::string EstadoCivil, std::string RFC, std::string Puesto, std::string EstadoEmpresa, int Salario, int NumeroCuenta, int NumeroSeguroSocial, int FechaContratacion_Dia, int FechaContratacion_Mes, int FechaContratacion_Year){
-        this -> Nombre = Nombre;
-        this -> Direccion = Direccion;
-        this -> EstadoCivil = EstadoCivil;
-        this -> RFC = RFC;
-        this -> Puesto = Puesto;
-        this -> EstadoEmpresa = EstadoEmpresa;
-        this -> Salario = Salario;
-        this -> NumeroCuenta = NumeroCuenta;
-        this -> NumeroSeguroSocial = NumeroSeguroSocial;
-        this -> FechaContratacion_Dia = FechaContratacion_Dia;
-        this -> FechaContratacion_Mes = FechaContratacion_Mes;
-        this -> FechaContratacion_Year = FechaContratacion_Year;
+    // Constructor Explícito de Empleado
+    Empleado(std::string ID,std::string Nombre, std::string Direccion, std::string EstadoCivil, std::string RFC, std::string Puesto, std::string EstadoEmpresa, std::string Salario, int NumeroCuenta, int NumeroSeguroSocial, int FechaContratacion_Dia, int FechaContratacion_Mes, int FechaContratacion_Year) {
+        this->Nombre = Nombre;
+        this->Direccion = Direccion;
+        this->EstadoCivil = EstadoCivil;
+        this->RFC = RFC;
+        this->Puesto = Puesto;
+        this->EstadoEmpresa = EstadoEmpresa;
+        this->Salario = Salario;
+        this->NumeroCuenta = NumeroCuenta;
+        this->NumeroSeguroSocial = NumeroSeguroSocial;
+        this->FechaContratacion_Dia = FechaContratacion_Dia;
+        this->FechaContratacion_Mes = FechaContratacion_Mes;
+        this->FechaContratacion_Year = FechaContratacion_Year;
     }
 
     void RevisarDatos() {
@@ -54,13 +57,13 @@ public:
         std::ifstream csvFileIn(filename);
         if (!csvFileIn.is_open()) {
             std::cerr << "Error abriendo el archivo.";
-            return 1;
+            return;
         }
 
         // Almacenamos los datos en un vector para visualizarlos
         std::vector<std::vector<std::string>> Data;
         std::string Line;
-        while (std::getLine(csvFileIn, Line)) {
+        while (std::getline(csvFileIn, Line)) {
             std::stringstream ss(Line);
             std::string Item;
             std::vector<std::string> Fila;
@@ -70,28 +73,28 @@ public:
             Data.push_back(Fila);
         }
 
-        // Imprimimos una fila especifica de datos
-        size_t filaImprimir = ID;
-        if (filaImprimir << Data.size()) {
+        // Imprimimos una fila específica de datos
+        size_t filaImprimir = std::stoull (ID);
+        if (filaImprimir < Data.size()) {
             for (const auto& Item : Data[filaImprimir]) {
                 std::cout << Item << " ";
             }
             std::cout << "\n";
         } else {
-            std::cerr << "La Fila a Imprimir no Existe.";
-            return 1;
+            std::cerr << "La Fila a Imprimir no Existe.\n";
         }
     }
 
-private:
-    // Declaracion de Variables
+public:
+    // Declaración de Variables
+    std::string ID;
     std::string Nombre;
     std::string Direccion;
     std::string EstadoCivil;
     std::string RFC;
     std::string Puesto;
     std::string EstadoEmpresa;
-    int Salario;
+    std::string Salario;
     int NumeroCuenta;
     int NumeroSeguroSocial;
     int FechaContratacion_Dia;
@@ -110,8 +113,9 @@ public:
         this -> PuestoEmpleado = "N/A";
     }
 
-    // Constructor Explicito de Contador con Herencia de Empleado
-    Contador(int Saldo, std::string Sucursal, std::string SATKeys, std::string ConstanciaSituacionFiscal, std::string PuestoEmpleado): Empleado(std::string Nombre, std::string Direccion, std::string EstadoCivil, std::string RFC, std::string Puesto, std::string EstadoEmpresa, int Salario, int NumeroCuenta, int NumeroSeguroSocial, int FechaContratacion_Dia, int FechaContratacion_Mes, int FechaContratacion_Year){
+    // Constructor Explícito de Contador con Herencia de Empleado
+    Contador(int Saldo, std::string Sucursal, std::string SATKeys, std::string ConstanciaSituacionFiscal, std::string PuestoEmpleado):
+            Empleado(ID,Nombre,Direccion,EstadoCivil,RFC,Puesto,EstadoEmpresa,Salario,NumeroCuenta,NumeroSeguroSocial,FechaContratacion_Dia, FechaContratacion_Mes, FechaContratacion_Year){
         this -> Saldo = Saldo;
         this -> Sucursal = Sucursal;
         this -> SATKeys = SATKeys;
@@ -129,13 +133,13 @@ public:
         std::ifstream csvFileIn(filename);
         if (!csvFileIn.is_open()) {
             std::cerr << "Error abriendo el archivo.";
-            return 1;
+            return;
         }
 
         // Almacenamos los datos en un vector para visualizarlos
         std::vector<std::vector<std::string>> Data;
         std::string Line;
-        while (std::getLine(csvFileIn, Line)) {
+        while (std::getline(csvFileIn, Line)) {
             std::stringstream ss(Line);
             std::string Item;
             std::vector<std::string> Fila;
@@ -145,20 +149,20 @@ public:
             Data.push_back(Fila);
         }
 
-        // Imprimimos una fila especifica de datos
-        size_t filaImprimir = ID;
-        if (filaImprimir << Data.size()) {
+        // Imprimimos una fila específica de datos
+        size_t filaImprimir = std::stoull (ID);
+        if (filaImprimir < Data.size()) {
             for (const auto& Item : Data[filaImprimir]) {
                 std::cout << Item << " ";
             }
             std::cout << "\n";
         } else {
-            std::cerr << "La Fila a Imprimir no Existe.";
-            return 1;
+            std::cerr << "La Fila a Imprimir no Existe.\n";
         }
     }
 
     void SalarioEmpleado() {
+        std::string linea;
         std::string filename = "BDPrincipal.csv";
 
         std::cout << "Escriba su ID: ";
@@ -168,28 +172,28 @@ public:
         std::ifstream csvFileIn(filename);
         if (!csvFileIn.is_open()) {
             std::cerr << "Error abriendo el archivo";
-            return 1;
+            return;
         }
 
-        //Mostrar datos de BD
+        // Mostrar datos de BD
         char delimitador = ',';
-        while(std::getline(csvFileIn, linea)){
+        while (getline(csvFileIn, linea)) {
             std::stringstream stream(linea);
 
-            //Pedir o sacar datos de la BD
-            std::getline(stream, id, delimitador);
+            // Pedir o sacar datos de la BD
+            std::getline(stream, ID, delimitador);
             std::getline(stream, Salario, delimitador);
 
-            //Imprimir los datos que se solicitan
-            std::cout << "ID: " << std::endl;
-            std::cout << "Salario: " << std::endl;
+            // Imprimir los datos que se solicitan
+            std::cout << "ID: " << ID << std::endl;
+            std::cout << "Salario: " << Salario << std::endl;
         }
 
-        csvFileIn.close(); //Cerramos el archivo
-
+        csvFileIn.close(); // Cerramos el archivo
     }
 
     void ClavesSAT() {
+        std::string linea;
         std::string filename = "BDPrincipal.csv";
 
         std::cout << "Escriba su ID: ";
@@ -199,16 +203,16 @@ public:
         std::ifstream csvFileIn(filename);
         if (!csvFileIn.is_open()) {
             std::cerr << "Error abriendo el archivo";
-            return 1;
+            return;
         }
 
-        //Mostrar datos de BD
+        // Mostrar datos de BD
         char delimitador = ',';
-        while(std::getline(csvFileIn, linea)){
+        while (std::getline(csvFileIn, linea)) {
             std::stringstream stream(linea);
 
-            //Pedir o sacar datos de la BD
-            std::getline(stream, id, delimitador);
+            // Pedir o sacar datos de la BD
+            std::getline(stream, ID, delimitador);
             std::getline(stream, SATKeys, delimitador);
 
             //Imprimir los datos que se solicitan
@@ -216,10 +220,11 @@ public:
             std::cout << "Clave SAT: " << std::endl;
         }
 
-        csvFileIn.close(); //Cerramos el archivo
+        csvFileIn.close(); // Cerramos el archivo
     }
 
     void ConstanciasFiscales() {
+        std::string linea;
         std::string filename = "BDPrincipal.csv";
 
         std::cout << "Escriba su ID: ";
@@ -271,7 +276,8 @@ public:
     }
 
     // Constructor Explicito de Almacen con Herencia de Empleado
-    Almacen(int NumCajas, int EspacioDisponible, int EspacioOcupado, int PesoCajas, std::string ContenidoCajas) : Empleado(std::string Nombre, std::string Direccion, std::string EstadoCivil, std::string RFC, std::string Puesto, std::string EstadoEmpresa, int Salario, int NumeroCuenta, int NumeroSeguroSocial, int FechaContratacion_Dia, int FechaContratacion_Mes, int FechaContratacion_Year){
+    Almacen(int NumCajas, int EspacioDisponible, int EspacioOcupado, int PesoCajas, std::string ContenidoCajas) :
+            Empleado(ID,Nombre,Direccion,EstadoCivil,RFC,Puesto,EstadoEmpresa,Salario,NumeroCuenta,NumeroSeguroSocial,FechaContratacion_Dia, FechaContratacion_Mes, FechaContratacion_Year){
         this -> NumCajas = NumCajas;
         this -> EspacioDisponible = EspacioDisponible;
         this -> EspacioOcupado = EspacioOcupado;
@@ -319,33 +325,8 @@ public:
     }
 
     void SucursalesInventario() {
-        std::string filename = "BDPrincipal.csv";
 
-        std::cout << "Escriba su ID: ";
-        std::cin >> ID;
 
-        //
-        std::ifstream csvFileIn(filename);
-        if (!csvFileIn.is_open()) {
-            std::cerr << "Error abriendo el archivo";
-            return 1;
-        }
-
-        //Mostrar datos de BD
-        Sucursal sucursal; //Invocación de clase Sucursales de Sucursal.h
-        char delimitador = ',';
-        while(std::getline(csvFileIn, linea)){
-            std::stringstream stream(linea);
-
-            //Pedir o sacar datos de la BD
-            std::getline(stream, id, delimitador);
-            std::getline(stream, sucursal.ElegirSucursal(), delimitador);
-
-            //Imprimir los datos que se solicitan
-            std::cout << "ID: " << std::endl;
-        }
-
-        csvFileIn.close(); //Cerramos el archivo
     }
 
 
@@ -367,7 +348,8 @@ public:
     }
 
     // Constructor Explicito
-    Gerente(std::string Contratar, std::string Despedir) : Empleado(std::string Nombre, std::string Direccion, std::string EstadoCivil, std::string RFC, std::string Puesto, std::string EstadoEmpresa, int Salario, int NumeroCuenta, int NumeroSeguroSocial, int FechaContratacion_Dia, int FechaContratacion_Mes, int FechaContratacion_Year){
+    Gerente(std::string Contratar, std::string Despedir) :
+            Empleado(ID,Nombre,Direccion,EstadoCivil,RFC,Puesto,EstadoEmpresa,Salario,NumeroCuenta,NumeroSeguroSocial,FechaContratacion_Dia, FechaContratacion_Mes, FechaContratacion_Year){
         this -> Contratar = Contratar;
         this -> Despedir = Despedir;
     }
@@ -376,7 +358,7 @@ public:
         std::string filename = "BDPrincipal.csv";
 
         // Ingresar Datos del Empleado
-        std::cout << "Ingrese los nuevos datos del Empleado procurando separar los datos con una coma (Puesto, Nombre, Dirección, Estado Civil, RFC, Salario, Numero de Cuenta, Numero de Seguro Social, Dia de Contratación, Mes de Contratación, Año de Contratación y Estado Actual en la Empresa): "
+        std::cout << "Ingrese los nuevos datos del Empleado procurando separar los datos con una coma (Puesto, Nombre, Dirección, Estado Civil, RFC, Salario, Numero de Cuenta, Numero de Seguro Social, Dia de Contratación, Mes de Contratación, Año de Contratación y Estado Actual en la Empresa): "<<std::endl;
         std::string userInput;
         std::getline(std::cin, userInput);
 
@@ -486,7 +468,6 @@ public:
         std::ifstream csvFileIn(filename);
         if (!csvFileIn.is_open()) {
             std::cerr << "Error abriendo el archivo.";
-            return 1;
         }
 
         // Almacenamos los datos en un vector para visualizarlos
@@ -568,7 +549,8 @@ public:
     }
 
     // Constructor Explicito
-    Jefe(std::string Ascender, std::string Descender, std::string Despedir, std::string Contratar) : Empleado(std::string Nombre, std::string Direccion, std::string EstadoCivil, std::string RFC, std::string Puesto, std::string EstadoEmpresa, int Salario, int NumeroCuenta, int NumeroSeguroSocial, int FechaContratacion_Dia, int FechaContratacion_Mes, int FechaContratacion_Year){
+    Jefe(std::string Ascender, std::string Descender, std::string Despedir, std::string Contratar) :
+            Empleado(ID,Nombre,Direccion,EstadoCivil,RFC,Puesto,EstadoEmpresa,Salario,NumeroCuenta,NumeroSeguroSocial,FechaContratacion_Dia, FechaContratacion_Mes, FechaContratacion_Year){
         this -> Ascender = Ascender;
         this -> Descender = Descender;
         this -> Despedir = Despedir;
@@ -579,7 +561,7 @@ public:
         std::string filename = "BDPrincipal.csv";
 
         // Ingresar Datos del Empleado
-        std::cout << "Ingrese los nuevos datos del Empleado procurando separar los datos con una coma (Puesto, Nombre, Dirección, Estado Civil, RFC, Salario, Numero de Cuenta, Numero de Seguro Social, Dia de Contratación, Mes de Contratación, Año de Contratación y Estado Actual en la Empresa): "
+        std::cout << "Ingrese los nuevos datos del Empleado procurando separar los datos con una coma (Puesto, Nombre, Dirección, Estado Civil, RFC, Salario, Numero de Cuenta, Numero de Seguro Social, Dia de Contratación, Mes de Contratación, Año de Contratación y Estado Actual en la Empresa): "<<std::endl;
         std::string userInput;
         std::getline(std::cin, userInput);
 
@@ -595,7 +577,6 @@ public:
 
         if (!csvFile.is_open()) {
             std::cerr << "Error al abrir la Base de Datos" << filename << std::endl;
-            return 1;
         }
 
         for (size_t i = 1; i < newEmpleado.size(); i++) {
@@ -631,14 +612,13 @@ public:
     void DespedirEmpleado(){
         std::string filename = "BDPrincipal.csv";
 
-        std::cout << "Escriba el ID del empleado a quien desea despedir: "
+        std::cout << "Escriba el ID del empleado a quien desea despedir: "<<std::endl;
         std::cin >> ID;
 
         // Leer el archivo CSV
         std::ifstream csvFileIn(filename);
         if (!csvFileIn.is_open()) {
             std::cerr << "Error abriendo el archivo.";
-            return 1;
         }
 
         // Almacenamos los datos en un vector para poder modificarlos
@@ -662,14 +642,12 @@ public:
             Data[filaModificar][colModificar] = "Despedido";
         } else {
             std::cerr << "La posición a modificar no existe.";
-            return 1;
         }
 
         // Procedimiento para guardar los nuevos datos modificados en la BD
         std::ofstream csvFileOut(filename);
         if (!csvFileOut.is_open()) {
             std::cerr << "Error al abrir la Base de Datos.";
-            return 1;
         }
 
         for (const auto& Fila : Data) {
@@ -679,22 +657,21 @@ public:
         }
         csvFileOut << "\n";
         csvFileOut.close();
-        std::cout << "¡Procedimiento exitoso!";
+        std::cout << "¡Procedimiento exitoso!"<<std::endl;
     }
 
     void DescenderEmpleado(){
         std::string filename = "BDPrincipal.csv";
 
-        std::cout << "Escriba el ID del empleado que desea descender: "
+        std::cout << "Escriba el ID del empleado que desea descender: "<<std::endl;
         std::cin >> ID;
-        std::cout << "Escriba el nuevo puesto del Empleado: "
+        std::cout << "Escriba el nuevo puesto del Empleado: "<<std::endl;
         std::cin >> NewPuesto;
 
         // Leer el archivo CSV
         std::ifstream csvFileIn(filename);
         if (!csvFileIn.is_open()) {
-            std::cerr << "Error abriendo el archivo.";
-            return 1;
+            std::cout << "Error abriendo el archivo."<<std::endl;
         }
 
         // Almacenamos los datos en un vector para poder modificarlos
@@ -725,7 +702,6 @@ public:
         std::ofstream csvFileOut(filename);
         if (!csvFileOut.is_open()) {
             std::cerr << "Error al abrir la Base de Datos.";
-            return 1;
         }
 
         for (const auto& Fila : Data) {
@@ -741,16 +717,15 @@ public:
     void AscenderEmpleado() {
         std::string filename = "BDPrincipal.csv";
 
-        std::cout << "Escriba el ID del empleado que desea ascender: "
+        std::cout << "Escriba el ID del empleado que desea ascender: "<<std::endl;
         std::cin >> ID;
-        std::cout << "Escriba el nuevo puesto del Empleado: "
+        std::cout << "Escriba el nuevo puesto del Empleado: "<<std::endl;
         std::cin >> NewPuesto;
 
         // Leer el archivo CSV
         std::ifstream csvFileIn(filename);
         if (!csvFileIn.is_open()) {
             std::cerr << "Error abriendo el archivo.";
-            return 1;
         }
 
         // Almacenamos los datos en un vector para poder modificarlos
@@ -774,14 +749,12 @@ public:
             Data[filaModificar][colModificar] = NewPuesto;
         } else {
             std::cerr << "La posición a modificar no existe.";
-            return 1;
         }
 
         // Procedimiento para guardar los nuevos datos modificados en la BD
         std::ofstream csvFileOut(filename);
         if (!csvFileOut.is_open()) {
             std::cerr << "Error al abrir la Base de Datos.";
-            return 1;
         }
 
         for (const auto& Fila : Data) {
@@ -801,7 +774,6 @@ public:
         std::ifstream csvFileIn(filename);
         if (!csvFileIn.is_open()) {
             std::cerr << "Error abriendo el archivo.";
-            return 1;
         }
 
         // Almacenamos los datos en un vector para visualizarlos
