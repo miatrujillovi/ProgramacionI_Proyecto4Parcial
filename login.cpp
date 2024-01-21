@@ -3,11 +3,12 @@
 #include <sstream>
 #include <string>
 #include <vector>
+#include "Usuarios.h"
 
 void createDatabaseFile() {
-    std::ifstream file("Datos.csv");
+    std::ifstream file("BDPrincipal.csv");
     if (!file.good()) {
-        std::ofstream outfile("Datos.csv");
+        std::ofstream outfile("BDPrincipal.csv");
         outfile << "ID,Puesto,Nombre,Direccion,EstadoCivil,RFC,Salario,NumeroCuenta,NumeroSeguroSocial,FechaContratacion_Dia,FechaContratacion_Mes,FechaContratacion_Year,EstadoEmpresa,Usuario,Contraseña\n";
         outfile.close();
     }
@@ -20,7 +21,7 @@ std::string Login() {
     std::cout << "Ingresar contraseña para continuar" << std::endl << " Contraseña: ";
     std::cin >> contra;
 
-    std::string archivoName = "Datos.csv";
+    std::string archivoName = "BDPrincipal.csv";
     std::ifstream archivoLectura(archivoName);
     if (!archivoLectura.is_open()) {
         std::cout << "No se ha podido acceder al archivo de la base de datos." << std::endl;
@@ -71,13 +72,27 @@ std::string Login() {
         return "";
     }
 }
-
-void Logintotal() {
+void LoginTotal() {
+    createDatabaseFile();
     Login();
+    openMenu();
 }
 
+void openMenu(){
+
+    switch(rango) {
+            case 0:
+                MenuGerente();
+                break;
+
+            case 1:
+                MenuJefe();
+                break;
+    }
+
+};
+
 int main() {
-    createDatabaseFile();
-    Logintotal();
+    LoginTotal();
     return 0;
 }
