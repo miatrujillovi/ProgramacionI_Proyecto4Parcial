@@ -1,3 +1,3 @@
-C:/Users/Alumnos/ProgramacionI_Proyecto4Parcial/login/cmake-build-debug/CMakeFiles/login.dir
-C:/Users/Alumnos/ProgramacionI_Proyecto4Parcial/login/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/Alumnos/ProgramacionI_Proyecto4Parcial/login/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+C:/Users/sdedf/CLionProjects/ProgramacionI_Proyecto4Parcial/login/cmake-build-debug/CMakeFiles/login.dir
+C:/Users/sdedf/CLionProjects/ProgramacionI_Proyecto4Parcial/login/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/sdedf/CLionProjects/ProgramacionI_Proyecto4Parcial/login/cmake-build-debug/CMakeFiles/rebuild_cache.dir
