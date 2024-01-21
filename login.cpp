@@ -78,11 +78,11 @@ void openMenu(){
 
     switch(rango) {
         case 0:
-            MenuGerente();
+            MenuJefe();
             break;
 
         case 1:
-            MenuJefe();
+            MenuGerente();
             break;
     }
 
