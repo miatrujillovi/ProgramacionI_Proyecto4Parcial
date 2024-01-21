@@ -8,6 +8,7 @@
 #include <vector>
 #include <fstream>
 #include <sstream>
+#include "Sucursales.h"
 
 class Empleado{
 public:
@@ -280,20 +281,22 @@ public:
             std::cerr << "Error abriendo el archivo";
             return 1;
         }
-    }
 
-    void Sucursales() {
-        std::string filename = "BDPrincipal.csv";
+        char delimitador = ',';
+        while(std::getline(csvFileIn, linea)){
+            std::stringstream stream(linea);
 
-        std::cout << "Escriba su ID: ";
-        std::cin >> ID;
+            //Pedir o sacar datos de la BD
+            std::getline(stream, id, delimitador);
+            std::getline(stream, Salario, delimitador);
 
-        //
-        std::ifstream csvFileIn(filename);
-        if (!csvFileIn.is_open()) {
-            std::cerr << "Error abriendo el archivo";
-            return 1;
+            //Imprimir los datos que se solicitan
+            std::cout << "ID: " << std::endl;
+            std::cout << "Salario: " << std::endl;
         }
+
+        csvFileIn.close(); //Cerramos el archivo
+
     }
 
     void ClavesSAT() {
@@ -308,9 +311,24 @@ public:
             std::cerr << "Error abriendo el archivo";
             return 1;
         }
+
+        char delimitador = ',';
+        while(std::getline(csvFileIn, linea)){
+            std::stringstream stream(linea);
+
+            //Pedir o sacar datos de la BD
+            std::getline(stream, id, delimitador);
+            std::getline(stream, SATKeys, delimitador);
+
+            //Imprimir los datos que se solicitan
+            std::cout << "ID: " << std::endl;
+            std::cout << "Clave SAT: " << std::endl;
+        }
+
+        csvFileIn.close(); //Cerramos el archivo
     }
 
-    void ConstanciaSituacionesFiscales() {
+    void ConstanciasFiscales() {
         std::string filename = "BDPrincipal.csv";
 
         std::cout << "Escriba su ID: ";
@@ -322,6 +340,22 @@ public:
             std::cerr << "Error abriendo el archivo";
             return 1;
         }
+
+        //Mostrar datos de BD
+        char delimitador = ',';
+        while(std::getline(csvFileIn, linea)){
+            std::stringstream stream(linea);
+
+            //Pedir o sacar datos de la BD
+            std::getline(stream, id, delimitador);
+            std::getline(stream, ConstanciaSituacionFiscal, delimitador);
+
+            //Imprimir los datos que se solicitan
+            std::cout << "ID: " << std::endl;
+            std::cout << "Constancia de Situacion Fiscal: " << std::endl;
+        }
+
+        csvFileIn.close(); //Cerramos el archivo
     }
 
 
@@ -425,6 +459,35 @@ public:
             std::cerr << "La Fila a Imprimir no Existe.";
             return 1;
         }
+    }
+
+    void Sucursales() {
+        std::string filename = "BDPrincipal.csv";
+
+        std::cout << "Escriba su ID: ";
+        std::cin >> ID;
+
+        //
+        std::ifstream csvFileIn(filename);
+        if (!csvFileIn.is_open()) {
+            std::cerr << "Error abriendo el archivo";
+            return 1;
+        }
+
+        char delimitador = ',';
+        while(std::getline(csvFileIn, linea)){
+            std::stringstream stream(linea);
+
+            //Pedir o sacar datos de la BD
+            std::getline(stream, id, delimitador);
+            std::getline(stream, Salario, delimitador);
+
+            //Imprimir los datos que se solicitan
+            std::cout << "ID: " << std::endl;
+            std::cout << "Salario: " << std::endl;
+        }
+
+        csvFileIn.close(); //Cerramos el archivo
     }
 
     void Inventario() {
