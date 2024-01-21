@@ -71,4 +71,52 @@ void MenuJefe() {
     }
 }
 
+// FUNCIONES CONTADOR
+
+void MenuContador() {
+    int value;
+    Contador contador; //Invocación de clase Contador de Usuarios
+
+    std::cout << "===== MENU CONTADOR =====" << std::endl;
+    std::cout << "Bienvenido. Porfavor elije una opcion." << std::endl;
+    std::cout << "[1] Revisar datos" << std::endl;
+    std::cout << "[2] Revisar salario de un empleado" << std::endl;
+    std::cout << "[3] Revisar la clave SAT de un empleado" << std::endl;
+    std::cout << "[4] Revisar una constancia fiscal" << std::endl;
+    std::cout << "======================" << std::endl;
+
+    std::cin >> value;
+
+    switch (value) {
+        case 1:
+            contador.RevisarDatos();
+        case 2:
+            contador.SalarioEmpleado();
+        case 3:
+            contador.ClavesSAT();
+        case 4:
+            contador.ConstanciasFiscales();
+    }
+}
+
+void MenuAlmacen() {
+    int value;
+    Almacen almacen;
+
+    std::cout << "===== MENU ALMACEN =====" << std::endl;
+    std::cout << "Bienvenido. Porfavor elije una opcion." << std::endl;
+    std::cout << "[1] Revisar datos" << std::endl;
+    std::cout << "[2] Revisar el inventario de sucursal" << std::endl;
+    std::cout << "======================" << std::endl;
+
+    std::cin >> value;
+
+    switch (value) {
+        case 1:
+            almacen.RevisarDatos();
+        case 2:
+            almacen.SucursalesInventario();
+    }
+}
+
 #endif //PROGRAMACIONI_PROYECTO4PARCIAL_MENU_H

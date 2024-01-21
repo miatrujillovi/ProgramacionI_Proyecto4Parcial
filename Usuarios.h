@@ -324,8 +324,7 @@ public:
     }
 
     void SucursalesInventario() {
-
-
+        std::cout << "SucursalesInventario()"; //Placeholder
     }
 
 

@@ -84,6 +84,12 @@ void openMenu(){
         case 1:
             MenuGerente();
             break;
+        case 3:
+            MenuContador();
+            break;
+        case 4:
+            MenuAlmacen();
+            break;
 
         default:
             std::cout<<"Error al ingresar al menu, Puesto no encontrado"<<std::endl;
