@@ -10,6 +10,8 @@
 - Añadido menú para el contador con sus métodos.
 - Añadido el menú para el almacén.
 - Se añadió un `cout` en `SucursalesInventario()` como placeholder para asegurarnos de que si llama correctamente a la función.
+- Se añadió el menú de Empleado.
+- Añadidas acciones default en caso de que se ingrese una opción inválida en los menús.
 ## Información
 Los menús son dependientes de las clases y funciones en `usuarios.h`. El `main.cpp` puede ser ignorado, solo se usa para DEBUG.
 

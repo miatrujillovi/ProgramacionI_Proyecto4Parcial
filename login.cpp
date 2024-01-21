@@ -74,6 +74,9 @@ std::string Login() {
     }
 }
 
+
+//Menú de empleados
+
 void openMenu(){
 
     switch(rango) {
@@ -84,13 +87,15 @@ void openMenu(){
         case 1:
             MenuGerente();
             break;
-        case 3:
+        case 2:
             MenuContador();
             break;
-        case 4:
+        case 3:
             MenuAlmacen();
             break;
-
+        case 4:
+            MenuEmpleado();
+            break;
         default:
             std::cout<<"Error al ingresar al menu, Puesto no encontrado"<<std::endl;
 

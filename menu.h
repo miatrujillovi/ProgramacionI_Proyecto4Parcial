@@ -8,6 +8,30 @@
 #include "Usuarios.h"
 #include <string>
 
+
+// MENU EMPLEADO
+
+void MenuEmpleado() {
+    int value;
+    Empleado empleado;
+
+    std::cout << "===== MENU GERENTE =====" << std::endl;
+    std::cout << "Bienvenido. Porfavor elije una opcion." << std::endl;
+    std::cout << "[1] Revisar datos" << std::endl;
+    std::cout << "======================" << std::endl;
+
+    std::cin >> value;
+
+    switch (value) {
+        case 1:
+            empleado.RevisarDatos();
+        default:
+            std::cout << "Opcion no valida" << std::endl;
+            break;
+    }
+}
+
+
 // FUNCIONES GERENTE
 
 void MenuGerente() {
@@ -33,6 +57,9 @@ void MenuGerente() {
             gerente.RevisarDatosEmpleados();
         case 4:
             gerente.RevisarDatos();
+        default:
+            std::cout << "Opcion no valida" << std::endl;
+            break;
     }
 }
 
@@ -68,6 +95,9 @@ void MenuJefe() {
             jefe.AscenderEmpleado();
         case 6:
             jefe.DescenderEmpleado();
+        default:
+            std::cout << "Opcion no valida" << std::endl;
+            break;
     }
 }
 
@@ -96,9 +126,13 @@ void MenuContador() {
             contador.ClavesSAT();
         case 4:
             contador.ConstanciasFiscales();
+        default:
+            std::cout << "Opcion no valida" << std::endl;
+            break;
     }
 }
 
+//MENU ALMACEN
 void MenuAlmacen() {
     int value;
     Almacen almacen;
@@ -115,7 +149,10 @@ void MenuAlmacen() {
         case 1:
             almacen.RevisarDatos();
         case 2:
-            almacen.SucursalesInventario();
+            almacen.SucursalesInventario(); //Esta función retornará un COUT simple. Actualmente no cuenta con información, el COUT solo es para asegurarnos de que funciona.
+        default:
+            std::cout << "Opcion no valida" << std::endl;
+            break;
     }
 }
 
