@@ -13,7 +13,7 @@ public:
 //funcion para ver las cantidades de las variables
     void verinventario()
     {
-        std::cout << "Inventario de la sucursal " << nombre << endl;
+        std::cout << "Inventario de la sucursal " << Nombre << std::endl;
         std::cout << "Alambre de Cobre: " << cantidadTomates << endl;
         std::cout << "Tubo PBC: " << cantidadLechugas << endl;
     }
