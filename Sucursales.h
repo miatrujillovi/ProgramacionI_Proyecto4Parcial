@@ -29,49 +29,49 @@ public:
         NumeroTuboPbc = NewTuboPbc;
         std::cout << "Inventario actualizado correctamente." << endl;
     }
+    Sucursal sucursal1("Sucursal Patria", 21, 42);
+    Sucursal sucursal2("Sucursal Inglaterra", 11, 31);
+    Sucursal sucursal3("Sucursal Mixticotl", 16, 27);
 
+//funcion para eleguir que sucursal se va a trabajar
+    void ElegirSucursal(){
+        int opcion;
+        std::cout << std::endl << "======= INVENTARIO =======" << std::endl;
+        std::cout << "|                        |" << std::endl;
+        std::cout << "|  Sucursal Aguilas (1)  |" << std::endl;
+        std::cout << "|  Sucursal Fuentes (2)  |" << std::endl;
+        std::cout << "|  Sucursal Arboles (3)  |" << std::endl;
+        std::cout << "|                        |" << std::endl;
+        std::cout << "    Eligue Sucursal  ";
+        std::cin >> opcion;
+        std::cout << "|                        |" << std::endl;
+        std::cout << "==========================" << std::endl;
+
+//switch para comprobar que sucursal se eligio
+        switch(opcion){
+            case 1:{
+                sucursal1.verinventario();
+                //ElegirModificar();
+            }
+                break;
+            case 2:{
+                sucursal2.verinventario();
+            }
+                break;
+            case 3:{
+                sucursal3.verinventario();
+            }
+                break;
+            default:
+                exit ( 0);
+        }
+    }
 private:
     std::string Nombre;
     int NumeroAlambreCobre;
     int NumeroTuboPbc;
 };
 
-Sucursal sucursal1("Sucursal Patria", 21, 42);
-Sucursal sucursal2("Sucursal Inglaterra", 11, 31);
-Sucursal sucursal3("Sucursal Mixticotl", 16, 27);
 
-//funcion para eleguir que sucursal se va a trabajar
-void ElegirSucursal(){
-    int opcion;
-    std::cout << std::endl << "======= INVENTARIO =======" << std::endl;
-    std::cout << "|                        |" << std::endl;
-    std::cout << "|  Sucursal Aguilas (1)  |" << std::endl;
-    std::cout << "|  Sucursal Fuentes (2)  |" << std::endl;
-    std::cout << "|  Sucursal Arboles (3)  |" << std::endl;
-    std::cout << "|                        |" << std::endl;
-    std::cout << "    Eligue Sucursal  ";
-    std::cin >> opcion;
-    std::cout << "|                        |" << std::endl;
-    std::cout << "==========================" << std::endl;
-
-//switch para comprobar que sucursal se eligio
-    switch(opcion){
-        case 1:{
-            sucursal1.verinventario();
-            //ElegirModificar();
-        }
-            break;
-        case 2:{
-            sucursal2.verinventario();
-        }
-            break;
-        case 3:{
-            sucursal3.verinventario();
-        }
-            break;
-        default:
-            exit ( 0);
-    }
-};
 #endif
 

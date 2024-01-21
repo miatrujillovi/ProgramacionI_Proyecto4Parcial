@@ -44,83 +44,6 @@ public:
         this -> FechaContratacion_Year = FechaContratacion_Year;
     }
 
-    //Getters
-    std::string getNombre(){
-        return this -> Nombre;
-    }
-    std::string getDireccion(){
-        return this -> Direccion;
-    }
-    std::string getEstadoCivil(){
-        return this -> EstadoCivil;
-    }
-    std::string getRFC(){
-        return this -> RFC;
-    }
-    std::string getPuesto(){
-        return this -> Puesto;
-    }
-    std::string getEstadoEmpresa(){
-        return this -> EstadoEmpresa;
-    }
-    int getSalario(){
-        return this -> Salario;
-    }
-    int getNumeroCuenta(){
-        return this -> NumeroCuenta;
-    }
-    int getNumeroSeguroSocial(){
-        return this -> NumeroSeguroSocial;
-    }
-    int getFechaContratacion_Dia(){
-        return this -> FechaContratacion_Dia;
-    }
-    int getFechaContratacion_Mes(){
-        return this -> FechaContratacion_Mes;
-    }
-    int getFechaContratacion_Year(){
-        return this -> FechaContratacion_Year;
-    }
-
-    //Setters
-    void setNombre(std::string Nombre){
-        this -> Nombre = Nombre;
-    }
-    void setDireccion(std::string Direccion){
-        this -> Direccion = Direccion;
-    }
-    void setEstadoCivil(std::string EstadoCivil){
-        this -> EstadoCivil = EstadoCivil;
-    }
-    void setRFC(std::string RFC){
-        this -> RFC = RFC;
-    }
-    void setPuesto(std::string Puesto){
-        this -> Puesto = Puesto;
-    }
-    void setEstadoEmpresa(std::string EstadoEmpresa){
-        this -> EstadoEmpresa = EstadoEmpresa;
-    }
-    void setSalario(int Salario){
-        this -> Salario = Salario;
-    }
-    void setNumeroCuenta(int NumeroCuenta){
-        this -> NumeroCuenta = NumeroCuenta;
-    }
-    void setNumeroSeguroSocial(int NumeroSeguroSocial){
-        this -> NumeroSeguroSocial = NumeroSeguroSocial;
-    }
-    void setFechaContratacion_Dia(int FechaContratacion_Dia){
-        this -> FechaContratacion_Dia = FechaContratacion_Dia;
-    }
-    void setFechaContratacion_Mes(int FechaContratacion_Mes){
-        this -> FechaContratacion_Mes = FechaContratacion_Mes;
-    }
-    void setFechaContratacion_Year(int FechaContratacion_Year){
-        this -> FechaContratacion_Year = FechaContratacion_Year;
-    }
-
-
     void RevisarDatos() {
         std::string filename = "BDPrincipal.csv";
 
@@ -196,40 +119,6 @@ public:
         this -> PuestoEmpleado = PuestoEmpleado;
     }
 
-    //Getters
-    int getSaldo(){
-        return this -> Saldo;
-    }
-    std::string getSucursal(){
-        return this -> Sucursal;
-    }
-    std::string getSATKeys(){
-        return this -> SATKeys;
-    }
-    std::string getConstanciaSituacionFiscal(){
-        return this -> ConstanciaSituacionFiscal;
-    }
-    std::string getPuestoEmpleado(){
-        return this -> PuestoEmpleado;
-    }
-
-    //Setters
-    void setSaldo(int Saldo){
-        this -> Saldo = Saldo;
-    }
-    void setSucursal(std::string Sucursal){
-        this -> Sucursal = Sucursal;
-    }
-    void setSATKeys(std::string SATKeys){
-        this -> SATKeys = SATKeys;
-    }
-    void setConstanciaSituacionFiscal(std::string ConstanciaSituacionFiscal){
-        this -> ConstanciaSituacionFiscal = ConstanciaSituacionFiscal;
-    }
-    void setPuestoEmpleado(std::string PuestoEmpleado){
-        this -> PuestoEmpleado = PuestoEmpleado;
-    }
-
     void RevisarDatos() {
         std::string filename = "BDPrincipal.csv";
 
@@ -282,6 +171,7 @@ public:
             return 1;
         }
 
+        //Mostrar datos de BD
         char delimitador = ',';
         while(std::getline(csvFileIn, linea)){
             std::stringstream stream(linea);
@@ -312,6 +202,7 @@ public:
             return 1;
         }
 
+        //Mostrar datos de BD
         char delimitador = ',';
         while(std::getline(csvFileIn, linea)){
             std::stringstream stream(linea);
@@ -388,40 +279,6 @@ public:
         this -> ContenidoCajas = ContenidoCajas;
     }
 
-    //Getters
-    int getNumCajas(){
-        return this -> NumCajas;
-    }
-    int getEspacioDisponible(){
-        return this -> EspacioDisponible;
-    }
-    int getEspacioOcupado(){
-        return this -> EspacioOcupado;
-    }
-    int getPesoCajas(){
-        return this -> PesoCajas;
-    }
-    std::string getContenidoCajas(){
-        return this -> ContenidoCajas;
-    }
-
-    //Setters
-    void setNumCajas(int NumCajas){
-        this -> NumCajas = NumCajas;
-    }
-    void setEspacioDisponible(int EspacioDisponible){
-        this -> EspacioDisponible = EspacioDisponible;
-    }
-    void setEspacioOcupado(int EspacioOcupado){
-        this -> EspacioOcupado = EspacioOcupado;
-    }
-    void setPesoCajas(int PesoCajas){
-        this -> PesoCajas = PesoCajas;
-    }
-    void setContenidoCajas(std::string ContenidoCajas){
-        this -> ContenidoCajas = ContenidoCajas;
-    }
-
     void RevisarDatos() {
         std::string filename = "BDPrincipal.csv";
 
@@ -461,7 +318,7 @@ public:
         }
     }
 
-    void Sucursales() {
+    void SucursalesInventario() {
         std::string filename = "BDPrincipal.csv";
 
         std::cout << "Escriba su ID: ";
@@ -474,49 +331,23 @@ public:
             return 1;
         }
 
+        //Mostrar datos de BD
+        Sucursal sucursal; //Invocación de clase Sucursales de Sucursal.h
         char delimitador = ',';
         while(std::getline(csvFileIn, linea)){
             std::stringstream stream(linea);
 
             //Pedir o sacar datos de la BD
             std::getline(stream, id, delimitador);
-            std::getline(stream, Salario, delimitador);
+            std::getline(stream, sucursal.ElegirSucursal(), delimitador);
 
             //Imprimir los datos que se solicitan
             std::cout << "ID: " << std::endl;
-            std::cout << "Salario: " << std::endl;
         }
 
         csvFileIn.close(); //Cerramos el archivo
     }
 
-    void Inventario() {
-        std::string filename = "BDPrincipal.csv";
-
-        std::cout << "Escriba su ID: ";
-        std::cin >> ID;
-
-        //
-        std::ifstream csvFileIn(filename);
-        if (!csvFileIn.is_open()) {
-            std::cerr << "Error abriendo el archivo";
-            return 1;
-        }
-    }
-
-    void ContenidoInventario() {
-        std::string filename = "BDPrincipal.csv";
-
-        std::cout << "Escriba su ID: ";
-        std::cin >> ID;
-
-        //
-        std::ifstream csvFileIn(filename);
-        if (!csvFileIn.is_open()) {
-            std::cerr << "Error abriendo el archivo";
-            return 1;
-        }
-    }
 
 private:
     // Declaracion de Variables
@@ -538,22 +369,6 @@ public:
     // Constructor Explicito
     Gerente(std::string Contratar, std::string Despedir) : Empleado(std::string Nombre, std::string Direccion, std::string EstadoCivil, std::string RFC, std::string Puesto, std::string EstadoEmpresa, int Salario, int NumeroCuenta, int NumeroSeguroSocial, int FechaContratacion_Dia, int FechaContratacion_Mes, int FechaContratacion_Year){
         this -> Contratar = Contratar;
-        this -> Despedir = Despedir;
-    }
-
-    //Getters
-    int getContratar(){
-        return this -> Contratar;
-    }
-    int getDespedir(){
-        return this -> Despedir;
-    }
-
-    //Setters
-    void setContratar(std::string Contratar){
-        this -> Contratar = Contratar;
-    }
-    void setDespedir(std::string Despedir){
         this -> Despedir = Despedir;
     }
 
@@ -757,34 +572,6 @@ public:
         this -> Ascender = Ascender;
         this -> Descender = Descender;
         this -> Despedir = Despedir;
-        this -> Contratar = Contratar;
-    }
-
-    // Getters
-    int getAscender(){
-        return this -> Ascender;
-    }
-    int getDescender(){
-        return this -> Descender;
-    }
-    int getDespedir(){
-        return this -> Despedir;
-    }
-    int getContratar(){
-        return this -> Contratar;
-    }
-
-    // Setters
-    void setAscender(std::string Ascender){
-        this -> Ascender = Ascender;
-    }
-    void setDescender(std::string Descender){
-        this -> Descender = Descender;
-    }
-    void setDespedir(std::string Despedir){
-        this -> Despedir = Despedir;
-    }
-    void setContratar(std::string Contratar){
         this -> Contratar = Contratar;
     }
 
