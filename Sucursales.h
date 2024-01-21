@@ -1,77 +1,71 @@
-//Libreria Sucursales
 #ifndef PROGRAMACIONI_PROYECTO4PARCIAL_SUCURSALES_H
 #define PROGRAMACIONI_PROYECTO4PARCIAL_SUCURSALES_H
 
 #include <iostream>
 #include <string>
 
-//Clase madre de la sucursal
 class Sucursal {
 public:
-    Sucursal(const std::string& Nombre, int Alambrecobre, int TuboPbc)
+    Sucursal(const std::string& Nombre, int AlambreCobre, int TuboPbc)
             : Nombre(Nombre), NumeroAlambreCobre(AlambreCobre), NumeroTuboPbc(TuboPbc) {}
-//funcion para ver las cantidades de las variables
-    void verinventario()
-    {
+    void verInventario() {
         std::cout << "Inventario de la sucursal " << Nombre << std::endl;
-        std::cout << "Alambre de Cobre: " << cantidadTomates << endl;
-        std::cout << "Tubo PBC: " << cantidadLechugas << endl;
+        std::cout << "Alambre de Cobre: " << NumeroAlambreCobre << std::endl;
+        std::cout << "Tubo PBC: " << NumeroTuboPbc << std::endl;
     }
-//funcion para modificar las cantidades de las variables
-    void modinventario()
-    {
+
+    void modInventario() {
         int NewAlambreCobre, NewTuboPbc;
-        std::cout << "Ingrese la nueva cantidad: ";
+        std::cout << "Ingrese la nueva cantidad de Alambre de Cobre: ";
         std::cin >> NewAlambreCobre;
-        std::cout << "Ingrese la nueva cantidad: ";
+        std::cout << "Ingrese la nueva cantidad de Tubo PBC: ";
         std::cin >> NewTuboPbc;
         NumeroAlambreCobre = NewAlambreCobre;
         NumeroTuboPbc = NewTuboPbc;
-        std::cout << "Inventario actualizado correctamente." << endl;
+        std::cout << "Inventario actualizado correctamente." << std::endl;
     }
-    Sucursal sucursal1("Sucursal Patria", 21, 42);
-    Sucursal sucursal2("Sucursal Inglaterra", 11, 31);
-    Sucursal sucursal3("Sucursal Mixticotl", 16, 27);
 
-//funcion para eleguir que sucursal se va a trabajar
-    void ElegirSucursal(){
+    // Función para elegir qué sucursal se va a trabajar
+    static void ElegirSucursal() {
         int opcion;
         std::cout << std::endl << "======= INVENTARIO =======" << std::endl;
         std::cout << "|                        |" << std::endl;
-        std::cout << "|  Sucursal Aguilas (1)  |" << std::endl;
-        std::cout << "|  Sucursal Fuentes (2)  |" << std::endl;
-        std::cout << "|  Sucursal Arboles (3)  |" << std::endl;
+        std::cout << "|  Sucursal Patria (1)  |" << std::endl;
+        std::cout << "|  Sucursal Inglaterra (2)  |" << std::endl;
+        std::cout << "|  Sucursal Mixticotl (3)  |" << std::endl;
         std::cout << "|                        |" << std::endl;
-        std::cout << "    Eligue Sucursal  ";
+        std::cout << "    Elija Sucursal: ";
         std::cin >> opcion;
         std::cout << "|                        |" << std::endl;
         std::cout << "==========================" << std::endl;
 
-//switch para comprobar que sucursal se eligio
-        switch(opcion){
-            case 1:{
-                sucursal1.verinventario();
-                //ElegirModificar();
-            }
+        switch (opcion) {
+            case 1:
+                sucursal1.verInventario();
                 break;
-            case 2:{
-                sucursal2.verinventario();
-            }
+            case 2:
+                sucursal2.verInventario();
                 break;
-            case 3:{
-                sucursal3.verinventario();
-            }
+            case 3:
+                sucursal3.verInventario();
                 break;
             default:
-                exit ( 0);
+                std::cout << "Opción no válida." << std::endl;
         }
     }
+
 private:
     std::string Nombre;
     int NumeroAlambreCobre;
     int NumeroTuboPbc;
+    static Sucursal sucursal1;
+    static Sucursal sucursal2;
+    static Sucursal sucursal3;
 };
+Sucursal Sucursal::sucursal1("Sucursal Patria", 21, 42);
 
+Sucursal Sucursal::sucursal2("Sucursal Inglaterra", 11, 31);
+
+Sucursal Sucursal::sucursal3("Sucursal Mixticotl", 16, 27);
 
 #endif
-

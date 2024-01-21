@@ -84,9 +84,13 @@ void openMenu(){
         case 1:
             MenuGerente();
             break;
+
+        default:
+            std::cout<<"Error al ingresar al menu, Puesto no encontrado"<<std::endl;
+
     }
 
-};
+}
 void LoginTotal() {
     createDatabaseFile();
     Login();
