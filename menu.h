@@ -15,7 +15,7 @@ void MenuEmpleado() {
     int value;
     Empleado empleado;
 
-    std::cout << "===== MENU GERENTE =====" << std::endl;
+    std::cout << "===== MENU EMPLEADO =====" << std::endl;
     std::cout << "Bienvenido. Porfavor elije una opcion." << std::endl;
     std::cout << "[1] Revisar datos" << std::endl;
     std::cout << "======================" << std::endl;
@@ -51,12 +51,20 @@ void MenuGerente() {
     switch (value) {
         case 1:
             gerente.ContratarEmpleado();
+            MenuGerente();
+            break;
         case 2:
             gerente.DespedirEmpleado();
+            MenuGerente();
+            break;
         case 3:
             gerente.RevisarDatosEmpleados();
+            MenuGerente();
+            break;
         case 4:
             gerente.RevisarDatos();
+            MenuGerente();
+            break;
         default:
             std::cout << "Opcion no valida" << std::endl;
             break;
@@ -133,12 +141,20 @@ void MenuContador() {
     switch (value) {
         case 1:
             contador.RevisarDatos();
+            MenuContador();
+            break;
         case 2:
             contador.SalarioEmpleado();
+            MenuContador();
+            break;
         case 3:
             contador.ClavesSAT();
+            MenuContador();
+            break;
         case 4:
             contador.ConstanciasFiscales();
+            MenuContador();
+            break;
         default:
             std::cout << "Opcion no valida" << std::endl;
             break;
@@ -161,8 +177,12 @@ void MenuAlmacen() {
     switch (value) {
         case 1:
             almacen.RevisarDatos();
+            MenuAlmacen();
+            break;
         case 2:
             almacen.SucursalesInventario(); //Esta función retornará un COUT simple. Actualmente no cuenta con información, el COUT solo es para asegurarnos de que funciona.
+            MenuAlmacen();
+            break;
         default:
             std::cout << "Opcion no valida" << std::endl;
             break;
