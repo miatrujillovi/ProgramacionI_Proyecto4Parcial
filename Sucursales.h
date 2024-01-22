@@ -26,7 +26,7 @@ public:
 
     // Función para elegir qué sucursal se va a trabajar
     void ElegirSucursal() {
-        int opcionmod;
+        char opcionmod;
         int opcion;
         std::cout << std::endl << "======= INVENTARIO =======" << std::endl;
         std::cout << "|                        |" << std::endl;
@@ -44,11 +44,11 @@ public:
                 sucursal1.verInventario();
                 std::cout << "Deseas Modificar? Y(1)/N(0)" << std::endl;
                 std::cin >> opcionmod;
-                if(opcionmod == 1)
+                if(opcionmod == "y")
                 {
                     sucursal1.modInventario();
                 }
-                if(opcionmod == 0)
+                if(opcionmod == "n")
                 {
                     ElegirSucursal();
                 }
@@ -61,11 +61,11 @@ public:
                 sucursal2.verInventario();
                 std::cout << "Deseas Modificar? Y(1)/N(0)" << std::endl;
                 std::cin >> opcionmod;
-                if(opcionmod == 1)
+                if(opcionmod == "y")
                 {
                     sucursal1.modInventario();
                 }
-                if(opcionmod == 0)
+                if(opcionmod == "n")
                 {
                     ElegirSucursal();
                 }
@@ -78,11 +78,11 @@ public:
                 sucursal3.verInventario();
                 std::cout << "Deseas Modificar? Y(1)/N(0)" << std::endl;
                 std::cin >> opcionmod;
-                if(opcionmod == 1)
+                if(opcionmod == "y")
                 {
                     sucursal1.modInventario();
                 }
-                if(opcionmod == 0)
+                if(opcionmod == "n")
                 {
                     ElegirSucursal();
                 }
