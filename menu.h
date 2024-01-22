@@ -85,6 +85,8 @@ void MenuJefe() {
     switch (value) {
         case 1:
             jefe.ContratarEmpleado();
+            MenuJefe();
+            break;
         case 2:
             jefe.DespedirEmpleado();
         case 3:

@@ -19,7 +19,7 @@ std::string Login() {
     std::string usuario, contra;
     std::cout << "Ingresar usuario para continuar" << std::endl << " Usuario: ";
     std::cin >> usuario;
-    std::cout << "Ingresar contraseña para continuar" << std::endl << " Contraseña: ";
+    std::cout << "Ingresar contra para continuar" << std::endl << " Contra: ";
     std::cin >> contra;
 
     std::string archivoName = "BDPrincipal.csv";
