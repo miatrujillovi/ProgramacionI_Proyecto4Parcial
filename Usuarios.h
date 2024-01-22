@@ -126,7 +126,7 @@ public:
     }
 
     void RevisarDatos() {
-        std::string filename = "BDPrincipal.csv";
+        std::string filename = "./BDPrincipal.csv";
 
         std::cout << "Escriba su ID: ";
         std::cin >> ID;
@@ -326,7 +326,8 @@ public:
     }
 
     void SucursalesInventario() {
-        std::cout << "SucursalesInventario()"; //Placeholder
+        Sucursal sucursalita;
+        sucursalita.ElegirSucursal();
     }
 
 

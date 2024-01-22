@@ -6,9 +6,9 @@
 
 class Sucursal {
 public:
-    Sucursal(const std::string& Nombre, int AlambreCobre, int TuboPbc)
-            : Nombre(Nombre), NumeroAlambreCobre(AlambreCobre), NumeroTuboPbc(TuboPbc) {}
-    void verInventario() {
+    Sucursal() = default;
+
+    void verInventario() const {
         std::cout << "Inventario de la sucursal " << Nombre << std::endl;
         std::cout << "Alambre de Cobre: " << NumeroAlambreCobre << std::endl;
         std::cout << "Tubo PBC: " << NumeroTuboPbc << std::endl;
@@ -26,7 +26,7 @@ public:
     }
 
     // Función para elegir qué sucursal se va a trabajar
-      void ElegirSucursal() {
+    void ElegirSucursal() {
         int opcionmod;
         int opcion;
         std::cout << std::endl << "======= INVENTARIO =======" << std::endl;
@@ -45,16 +45,11 @@ public:
                 sucursal1.verInventario();
                 std::cout << "Deseas Modificar? Y(1)/N(0)" << std::endl;
                 std::cin >> opcionmod;
-                if(opcionmod == 0)
-                {
+                if (opcionmod == 0) {
                     sucursal1.modInventario();
-                }
-                if(opcionmod == 1)
-                {
+                } else if (opcionmod == 1) {
                     ElegirSucursal();
-                }
-                else
-                {
+                } else {
                     std::cout << "Error... Error... Reinicie el programa..." << std::endl;
                 }
                 break;
@@ -62,16 +57,11 @@ public:
                 sucursal2.verInventario();
                 std::cout << "Deseas Modificar? Y(1)/N(0)" << std::endl;
                 std::cin >> opcionmod;
-                if(opcionmod == 0)
-                {
-                    sucursal1.modInventario();
-                }
-                if(opcionmod == 1)
-                {
+                if (opcionmod == 0) {
+                    sucursal2.modInventario();
+                } else if (opcionmod == 1) {
                     ElegirSucursal();
-                }
-                else
-                {
+                } else {
                     std::cout << "Error... Error... Reinicie el programa..." << std::endl;
                 }
                 break;
@@ -79,16 +69,11 @@ public:
                 sucursal3.verInventario();
                 std::cout << "Deseas Modificar? Y(1)/N(0)" << std::endl;
                 std::cin >> opcionmod;
-                if(opcionmod == 0)
-                {
-                    sucursal1.modInventario();
-                }
-                if(opcionmod == 1)
-                {
+                if (opcionmod == 0) {
+                    sucursal3.modInventario();
+                } else if (opcionmod == 1) {
                     ElegirSucursal();
-                }
-                else
-                {
+                } else {
                     std::cout << "Error... Error... Reinicie el programa..." << std::endl;
                 }
                 break;
@@ -105,10 +90,4 @@ private:
     static Sucursal sucursal2;
     static Sucursal sucursal3;
 };
-Sucursal Sucursal::sucursal1("Sucursal Patria", 21, 42);
-
-Sucursal Sucursal::sucursal2("Sucursal Inglaterra", 11, 31);
-
-Sucursal Sucursal::sucursal3("Sucursal Mixticotl", 16, 27);
-
 #endif
