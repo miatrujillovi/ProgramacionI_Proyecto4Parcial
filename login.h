@@ -1,3 +1,5 @@
+#ifndef PROGRAMACIONI_PROYECTO4PARCIAL_LOGIN_H
+#define PROGRAMACIONI_PROYECTO4PARCIAL_LOGIN_H
 #include <iostream>
 #include <fstream>
 #include <sstream>
@@ -43,19 +45,19 @@ std::string Login() {
         if (campos.size() >= 2 && campos[13] == usuario && campos[14] == contra) {
             find = true;
             if(campos.size()>=2 && campos[1]=="jefe"||campos[1]=="Jefe"){
-                rango=0;
-                break;}
-            if(campos.size()>=2 && campos[1]=="gerente"||campos[1]=="Gerente"){
                 rango=1;
                 break;}
-            if(campos.size()>=2 && campos[1]=="contador"||campos[1]=="Contador"){
+            if(campos.size()>=2 && campos[1]=="gerente"||campos[1]=="Gerente"){
                 rango=2;
                 break;}
-            if(campos.size()>=2 && campos[1]=="almacenes"||campos[1]=="Almacenes"){
+            if(campos.size()>=2 && campos[1]=="contador"||campos[1]=="Contador"){
                 rango=3;
                 break;}
-            if(campos.size()>=2 && campos[1]=="empleado"||campos[1]=="Empleado"){
+            if(campos.size()>=2 && campos[1]=="almacenes"||campos[1]=="Almacenes"){
                 rango=4;
+                break;}
+            if(campos.size()>=2 && campos[1]=="empleado"||campos[1]=="Empleado"){
+                rango=5;
                 break;}
 
             break;
@@ -80,20 +82,20 @@ std::string Login() {
 void openMenu(){
 
     switch(rango) {
-        case 0:
+        case 1:
             MenuJefe();
             break;
 
-        case 1:
+        case 2:
             MenuGerente();
             break;
-        case 2:
+        case 3:
             MenuContador();
             break;
-        case 3:
+        case 4:
             MenuAlmacen();
             break;
-        case 4:
+        case 5:
             MenuEmpleado();
             break;
         default:
@@ -108,7 +110,4 @@ void LoginTotal() {
     openMenu();
 }
 
-int main() {
-    LoginTotal();
-    return 0;
-}
+#endif

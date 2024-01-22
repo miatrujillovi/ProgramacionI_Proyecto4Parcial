@@ -11,3 +11,4 @@
 - Despues saque el login de la carpeta independiente donde lo estaba trabajando y empece a integrarlo al codigo principal integrandolo con la libreria de menus para la apertura automatica del menu de un usuario.
 - Ajuste el archivo de la base de datos para que tuviera toda la informacion necesaria y la movi a la carpeta global del proyecto para que pueda ser utilizada en cualquiera de las librerias en funcion,
 - Estoy apoyando a corregir errores de sintaxis que estan las librerias ya creadas.
+- Converti mi archivo cpp en una libreria y la integre junto al CMAKE al programa principal.
