@@ -621,7 +621,7 @@ public:
         }
 
         //Acomodamos los datos de la filas y columnas para cambiar el estado del empleado.
-        size_t filaModificar = ID;
+        size_t filaModificar = std::stoull(ID);
         size_t colModificar = 12;
 
         if (filaModificar < Data.size() && colModificar < Data[filaModificar].size()) {
@@ -675,7 +675,7 @@ public:
         }
 
         //Acomodamos los datos de la filas y columnas para cambiar el estado del empleado.
-        size_t filaModificar = ID;
+        size_t filaModificar = std::stoul (ID);
         size_t colModificar = 1;
 
         if (filaModificar < Data.size() && colModificar < Data[filaModificar].size()) {
@@ -729,7 +729,7 @@ public:
         }
 
         //Acomodamos los datos de la filas y columnas para cambiar el estado del empleado.
-        size_t filaModificar = ID;
+        size_t filaModificar = std::stoul (ID);
         size_t colModificar = 1;
 
         if (filaModificar < Data.size() && colModificar < Data[filaModificar].size()) {
@@ -766,7 +766,7 @@ public:
         // Almacenamos los datos en un vector para visualizarlos
         std::vector<std::vector<std::string>> Data;
         std::string Line;
-        while (std::getLine(csvFileIn, Line)) {
+        while (std::getline(csvFileIn, Line)) {
             std::stringstream ss(Line);
             std::string Item;
             std::vector<std::string> Fila;
@@ -813,7 +813,7 @@ public:
         }
 
         // Imprimimos una fila específica de datos
-        size_t filaImprimir = ID;
+        size_t filaImprimir = std::stoull (ID);
         if (filaImprimir < Data.size()) {
             for (const auto& Item : Data[filaImprimir]) {
                 std::cout << Item << " ";
