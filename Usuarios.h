@@ -386,7 +386,7 @@ public:
         // Agregamos números secuenciales en la columna de ID
         size_t UpdateCol = 0;
         for (size_t i = 0; i < newEmpleado.size(); i++) {
-            newEmpleado[i][UpdateCol] = std::to_string(i + 1);
+            newEmpleado[i][UpdateCol] = std::to_string(i + 1)[0];
         }
 
         for (const auto& fila : newEmpleado) {
@@ -431,7 +431,7 @@ public:
         }
 
         //Acomodamos los datos de la filas y columnas para cambiar el estado del empleado.
-        size_t filaModificar = ID;
+        size_t filaModificar = std::stoi(ID);
         size_t colModificar = 12;
 
         if (filaModificar < Data.size() && colModificar < Data[filaModificar].size()) {
@@ -517,7 +517,7 @@ public:
         }
 
         // Imprimimos una fila específica de datos
-        size_t filaImprimir = ID;
+        size_t filaImprimir = std::stoi(ID);
         if (filaImprimir < Data.size()) {
             for (const auto& Item : Data[filaImprimir]) {
                 std::cout << Item << " ";
@@ -553,51 +553,41 @@ public:
         this -> Contratar = Contratar;
     }
 
-    void ContratarEmpleado(){
+    void ContratarEmpleado() {
         std::string filename = "BDPrincipal.csv";
+        std::string userInput;
+
+        // Abrimos la BD para ingresar los datos
+        std::ofstream csvFile(filename, std::ios::app);
 
         // Ingresar Datos del Empleado
-        std::cout << "Ingrese los nuevos datos del Empleado procurando separar los datos con una coma (Puesto, Nombre, Dirección, Estado Civil, RFC, Salario, Numero de Cuenta, Numero de Seguro Social, Dia de Contratación, Mes de Contratación, Año de Contratación y Estado Actual en la Empresa): "<<std::endl;
-        std::string userInput;
+        std::cout << "Ingrese los nuevos datos del Empleado procurando separar los datos con una coma (Puesto, Nombre, Direccion, Estado Civil, RFC, Salario, Numero de Cuenta, Numero de Seguro Social, Dia de Contratacion, Mes de Contratacion, Year de Contratacion y Estado Actual en la Empresa, Usuario, Con): " << std::endl;
+        std::cin.ignore(); // Ignorar el salto de línea pendiente en el buffer
         std::getline(std::cin, userInput);
 
         // Utiilizamos un stringstream para dividir los datos ingresados
         std::stringstream ss(userInput);
         std::vector<std::string> NewEmpleado;
         while (std::getline(ss, userInput, ',')) {
-            newEmpleado.push_back(userInput);
+            NewEmpleado.push_back(userInput);
         }
-
-        // Abrimos la BD para ingresar los datos
-        std::ofstream csvFile(filename, std::ios::app);
 
         if (!csvFile.is_open()) {
-            std::cerr << "Error al abrir la Base de Datos" << filename << std::endl;
+            std::cerr << "Error al abrir la Base de Datos " << filename << std::endl;
+            return; // Salir de la función si no se puede abrir el archivo
         }
 
-        for (size_t i = 1; i < newEmpleado.size(); i++) {
-            csvFile << newEmpleado[i];
-            if (i < newEmpleado.size() - 1){
+        // Agregamos números secuenciales en la columna de ID
+        NewEmpleado.insert(NewEmpleado.begin(), std::to_string(NewEmpleado.size()));
+
+
+        for (size_t i = 0; i < NewEmpleado.size(); i++) {
+            csvFile << NewEmpleado[i];
+            if (i < NewEmpleado.size() - 1) {
                 csvFile << ",";
             }
         }
         csvFile << "\n";
-
-        // Agregamos números secuenciales en la columna de ID
-        size_t UpdateCol = 0;
-        for (size_t i = 0; i < NewEmpleado(); i++) {
-            NewEmpleado[i][UpdateCol] = std::to_string(i + 1);
-        }
-
-        for (const auto& fila : NewEmpleado) {
-            for (size_t i = 0; i < fila.size(); i++) {
-                csvFile << fila[i];
-                if (i < fila.size() - 1) {
-                    csvFile << ",";
-                }
-            }
-            csvFile << "\n";
-        }
 
         // Cerramos la BD
         csvFile.close();
@@ -620,7 +610,7 @@ public:
         // Almacenamos los datos en un vector para poder modificarlos
         std::vector<std::vector<std::string>> Data;
         std::string Line;
-        while (std::getLine(csvFileIn, Line)) {
+        while (std::getline(csvFileIn, Line)) {
             std::stringstream ss(Line);
             std::string Item;
             std::vector<std::string> Fila;
@@ -631,7 +621,7 @@ public:
         }
 
         //Acomodamos los datos de la filas y columnas para cambiar el estado del empleado.
-        size_t filaModificar = ID;
+        size_t filaModificar = std::stoull(ID);
         size_t colModificar = 12;
 
         if (filaModificar < Data.size() && colModificar < Data[filaModificar].size()) {
@@ -658,6 +648,7 @@ public:
 
     void DescenderEmpleado(){
         std::string filename = "BDPrincipal.csv";
+        std::string NewPuesto;
 
         std::cout << "Escriba el ID del empleado que desea descender: "<<std::endl;
         std::cin >> ID;
@@ -673,7 +664,7 @@ public:
         // Almacenamos los datos en un vector para poder modificarlos
         std::vector<std::vector<std::string>> Data;
         std::string Line;
-        while (std::getLine(csvFileIn, Line)) {
+        while (std::getline(csvFileIn, Line)) {
             std::stringstream ss(Line);
             std::string Item;
             std::vector<std::string> Fila;
@@ -684,14 +675,13 @@ public:
         }
 
         //Acomodamos los datos de la filas y columnas para cambiar el estado del empleado.
-        size_t filaModificar = ID;
+        size_t filaModificar = std::stoul (ID);
         size_t colModificar = 1;
 
         if (filaModificar < Data.size() && colModificar < Data[filaModificar].size()) {
             Data[filaModificar][colModificar] = NewPuesto;
         } else {
             std::cerr << "La posición a modificar no existe.";
-            return 1;
         }
 
         // Procedimiento para guardar los nuevos datos modificados en la BD
@@ -712,6 +702,7 @@ public:
 
     void AscenderEmpleado() {
         std::string filename = "BDPrincipal.csv";
+        std::string NewPuesto;
 
         std::cout << "Escriba el ID del empleado que desea ascender: "<<std::endl;
         std::cin >> ID;
@@ -727,7 +718,7 @@ public:
         // Almacenamos los datos en un vector para poder modificarlos
         std::vector<std::vector<std::string>> Data;
         std::string Line;
-        while (std::getLine(csvFileIn, Line)) {
+        while (std::getline(csvFileIn, Line)) {
             std::stringstream ss(Line);
             std::string Item;
             std::vector<std::string> Fila;
@@ -738,7 +729,7 @@ public:
         }
 
         //Acomodamos los datos de la filas y columnas para cambiar el estado del empleado.
-        size_t filaModificar = ID;
+        size_t filaModificar = std::stoul (ID);
         size_t colModificar = 1;
 
         if (filaModificar < Data.size() && colModificar < Data[filaModificar].size()) {
@@ -775,7 +766,7 @@ public:
         // Almacenamos los datos en un vector para visualizarlos
         std::vector<std::vector<std::string>> Data;
         std::string Line;
-        while (std::getLine(csvFileIn, Line)) {
+        while (std::getline(csvFileIn, Line)) {
             std::stringstream ss(Line);
             std::string Item;
             std::vector<std::string> Fila;
@@ -822,7 +813,7 @@ public:
         }
 
         // Imprimimos una fila específica de datos
-        size_t filaImprimir = ID;
+        size_t filaImprimir = std::stoull (ID);
         if (filaImprimir < Data.size()) {
             for (const auto& Item : Data[filaImprimir]) {
                 std::cout << Item << " ";
