@@ -10,6 +10,8 @@
 #include <vector>
 #include <fstream>
 #include <sstream>
+#include <cstring>
+#include <limits>
 #include "Sucursales.h"
 
 class Empleado {
@@ -553,17 +555,44 @@ public:
         this -> Contratar = Contratar;
     }
 
+    void ImprimirContenidoArchivo(const std::string& filename) {
+        std::ifstream file(filename);
+        if (file.is_open()) {
+            std::cout << "Contenido del archivo " << filename << ":" << std::endl;
+            std::string line;
+            while (std::getline(file, line)) {
+                if (!line.empty()) {
+                    std::cout << line << std::endl;
+                }
+            }
+            file.close();
+        } else {
+            std::cerr << "No se pudo abrir el archivo " << filename << " para lectura." << std::endl;
+        }
+    }
+
+
+    void LimpiarBufferEntrada() {
+        std::cin.clear();
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    }
+
     void ContratarEmpleado() {
-        std::string filename = "BDPrincipal.csv";
+        std::string filename = "./BDPrincipal.csv";
         std::string userInput;
 
-        // Abrimos la BD para ingresar los datos
-        std::ofstream csvFile(filename, std::ios::app);
+        LimpiarBufferEntrada();
 
         // Ingresar Datos del Empleado
         std::cout << "Ingrese los nuevos datos del Empleado procurando separar los datos con una coma (Puesto, Nombre, Direccion, Estado Civil, RFC, Salario, Numero de Cuenta, Numero de Seguro Social, Dia de Contratacion, Mes de Contratacion, Year de Contratacion y Estado Actual en la Empresa, Usuario, Con): " << std::endl;
         std::cin.ignore(); // Ignorar el salto de línea pendiente en el buffer
         std::getline(std::cin, userInput);
+
+        if (std::cin.fail()) {
+            std::cerr << "Error al leer la entrada del usuario." << std::endl;
+            LimpiarBufferEntrada();
+            return;
+        }
 
         // Utiilizamos un stringstream para dividir los datos ingresados
         std::stringstream ss(userInput);
@@ -572,15 +601,24 @@ public:
             NewEmpleado.push_back(userInput);
         }
 
-        if (!csvFile.is_open()) {
-            std::cerr << "Error al abrir la Base de Datos " << filename << std::endl;
-            return; // Salir de la función si no se puede abrir el archivo
+        //Verificar si NewEmpleado tiene información.
+        if(NewEmpleado.empty()) {
+            std::cerr << "No se han ingresado datos." << std::endl;
+            return;
+        }
+
+        // Abrimos la BD para ingresar los datos
+        std::ofstream csvFile(filename, std::ios::app);
+        if(!csvFile.is_open()) {
+            std::cerr << "Error al abrir el archivo" << filename << std::endl;
+            return;
         }
 
         // Agregamos números secuenciales en la columna de ID
         NewEmpleado.insert(NewEmpleado.begin(), std::to_string(NewEmpleado.size()));
 
 
+        //Escribir en el archivo
         for (size_t i = 0; i < NewEmpleado.size(); i++) {
             csvFile << NewEmpleado[i];
             if (i < NewEmpleado.size() - 1) {
@@ -589,10 +627,35 @@ public:
         }
         csvFile << "\n";
 
+        std::cout << "¡Empleado agregado exitosamente!" << std::endl;
+
+        csvFile.close();
+
+        ImprimirContenidoArchivo(filename);
+
+
+        /*std::cout << "Iniciando offstream..." << std::endl;
+
+        std::ofstream csvFileOut(filename, std::ios::app);
+        if(!csvFileOut.is_open()) {
+            std::cerr << "Error al abrir la base de datos.";
+        }
+
+        std::cout << "Ciclo FOR de almacenado de datos..." << std::endl;
+        for (const auto& Fila : NewEmpleado) {
+            for (size_t i = 0; i < Fila.size(); i++) {
+                csvFileOut << ",";
+            }
+        }
+        csvFile << "\n";
+
+        std::cout << "Cerrando DB" << std::endl;
+
         // Cerramos la BD
         csvFile.close();
 
-        std::cout << "¡Empleado agregado exitosamente!";
+        std::cout << "¡Empleado agregado exitosamente!" << std::endl;
+         */
     }
 
     void DespedirEmpleado(){
