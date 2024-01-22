@@ -326,8 +326,8 @@ public:
     }
 
     void SucursalesInventario() {
-        Sucursal sucursalita;
-        sucursalita.ElegirSucursal();
+        Sucursal sucursal("0",0,0);
+        sucursal.ElegirSucursal();
     }
 
 
