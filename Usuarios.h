@@ -386,7 +386,7 @@ public:
         // Agregamos números secuenciales en la columna de ID
         size_t UpdateCol = 0;
         for (size_t i = 0; i < newEmpleado.size(); i++) {
-            newEmpleado[i][UpdateCol] = std::to_string(i + 1);
+            newEmpleado[i][UpdateCol] = std::to_string(i + 1)[0];
         }
 
         for (const auto& fila : newEmpleado) {
@@ -431,7 +431,7 @@ public:
         }
 
         //Acomodamos los datos de la filas y columnas para cambiar el estado del empleado.
-        size_t filaModificar = ID;
+        size_t filaModificar = std::stoi(ID);
         size_t colModificar = 12;
 
         if (filaModificar < Data.size() && colModificar < Data[filaModificar].size()) {
@@ -517,7 +517,7 @@ public:
         }
 
         // Imprimimos una fila específica de datos
-        size_t filaImprimir = ID;
+        size_t filaImprimir = std::stoi(ID);
         if (filaImprimir < Data.size()) {
             for (const auto& Item : Data[filaImprimir]) {
                 std::cout << Item << " ";

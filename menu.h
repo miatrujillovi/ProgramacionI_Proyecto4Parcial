@@ -89,16 +89,27 @@ void MenuJefe() {
             break;
         case 2:
             jefe.DespedirEmpleado();
+            MenuJefe();
+            break;
         case 3:
             jefe.RevisarDatosEmpleados();
+            MenuJefe();
+            break;
         case 4:
             jefe.RevisarDatos();
+            MenuJefe();
+            break;
         case 5:
             jefe.AscenderEmpleado();
+            MenuJefe();
+            break;
         case 6:
             jefe.DescenderEmpleado();
+            MenuJefe();
+            break;
         default:
             std::cout << "Opcion no valida" << std::endl;
+            MenuJefe();
             break;
     }
 }
