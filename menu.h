@@ -18,6 +18,7 @@ void MenuEmpleado() {
     std::cout << "===== MENU EMPLEADO =====" << std::endl;
     std::cout << "Bienvenido. Porfavor elije una opcion." << std::endl;
     std::cout << "[1] Revisar datos" << std::endl;
+    std::cout << "[2] Salir del menu" << std::endl;
     std::cout << "======================" << std::endl;
 
     std::cin >> value;
@@ -25,6 +26,8 @@ void MenuEmpleado() {
     switch (value) {
         case 1:
             empleado.RevisarDatos();
+        case 2:
+            break;
         default:
             std::cout << "Opcion no valida" << std::endl;
             break;
@@ -44,6 +47,7 @@ void MenuGerente() {
     std::cout << "[2] Dar de baja empleado" << std::endl;
     std::cout << "[3] Revisar datos de un empleado" << std::endl;
     std::cout << "[4] Revisar datos de todos los empleados" << std::endl;
+    std::cout << "[5] Salir del menu" << std::endl;
     std::cout << "======================" << std::endl;
 
     std::cin >> value;
@@ -58,12 +62,14 @@ void MenuGerente() {
             MenuGerente();
             break;
         case 3:
-            gerente.RevisarDatosEmpleados();
+            gerente.RevisarDatos();
             MenuGerente();
             break;
         case 4:
-            gerente.RevisarDatos();
+            gerente.RevisarDatosEmpleados();
             MenuGerente();
+            break;
+        case 5:
             break;
         default:
             std::cout << "Opcion no valida" << std::endl;
@@ -85,7 +91,7 @@ void MenuJefe() {
     std::cout << "[4] Revisar datos de todos los empleados" << std::endl;
     std::cout << "[5] Promover a un empleado" << std::endl;
     std::cout << "[6] Demotear a un empleado" << std::endl;
-    std::cout << "[7] Revisar datos de todos los empleados" << std::endl;
+    std::cout << "[7] Salir del menu" << std::endl;
     std::cout << "======================" << std::endl;
 
     std::cin >> value;
@@ -115,6 +121,8 @@ void MenuJefe() {
             jefe.DescenderEmpleado();
             MenuJefe();
             break;
+        case 7:
+            break;
         default:
             std::cout << "Opcion no valida" << std::endl;
             MenuJefe();
@@ -134,6 +142,7 @@ void MenuContador() {
     std::cout << "[2] Revisar salario de un empleado" << std::endl;
     std::cout << "[3] Revisar la clave SAT de un empleado" << std::endl;
     std::cout << "[4] Revisar una constancia fiscal" << std::endl;
+    std::cout << "[5] Salir del menu" << std::endl;
     std::cout << "======================" << std::endl;
 
     std::cin >> value;
@@ -155,6 +164,8 @@ void MenuContador() {
             contador.ConstanciasFiscales();
             MenuContador();
             break;
+        case 5:
+            break;
         default:
             std::cout << "Opcion no valida" << std::endl;
             break;
@@ -170,6 +181,7 @@ void MenuAlmacen() {
     std::cout << "Bienvenido. Porfavor elije una opcion." << std::endl;
     std::cout << "[1] Revisar datos" << std::endl;
     std::cout << "[2] Revisar el inventario de sucursal" << std::endl;
+    std::cout << "[3] Salir del menu" << std::endl;
     std::cout << "======================" << std::endl;
 
     std::cin >> value;
@@ -183,6 +195,8 @@ void MenuAlmacen() {
             almacen.SucursalesInventario(); //Esta función retornará un COUT simple. Actualmente no cuenta con información, el COUT solo es para asegurarnos de que funciona.
             MenuAlmacen();
             break;
+        case 3:
+            break;
         default:
             std::cout << "Opcion no valida" << std::endl;
             break;
@@ -190,3 +204,4 @@ void MenuAlmacen() {
 }
 
 #endif //PROGRAMACIONI_PROYECTO4PARCIAL_MENU_H
+
