@@ -28,13 +28,15 @@ public:
         this->Salario = "N/A";
         this->NumeroCuenta = 0;
         this->NumeroSeguroSocial = 0;
+        this->SATKeys = 0;
+        this->ConstanciaFiscal = 0;
         this->FechaContratacion_Dia = 0;
         this->FechaContratacion_Mes = 0;
         this->FechaContratacion_Year = 0;
     }
 
     // Constructor Explícito de Empleado
-    Empleado(std::string ID,std::string Nombre, std::string Direccion, std::string EstadoCivil, std::string RFC, std::string Puesto, std::string EstadoEmpresa, std::string Salario, int NumeroCuenta, int NumeroSeguroSocial, int FechaContratacion_Dia, int FechaContratacion_Mes, int FechaContratacion_Year) {
+    Empleado(std::string ID,std::string Nombre, std::string Direccion, std::string EstadoCivil, std::string RFC, std::string Puesto, std::string EstadoEmpresa, std::string Salario, int NumeroCuenta, int NumeroSeguroSocial, int SATKeys, int ConstanciaFiscal,  int FechaContratacion_Dia, int FechaContratacion_Mes, int FechaContratacion_Year) {
         this->Nombre = Nombre;
         this->Direccion = Direccion;
         this->EstadoCivil = EstadoCivil;
@@ -44,6 +46,8 @@ public:
         this->Salario = Salario;
         this->NumeroCuenta = NumeroCuenta;
         this->NumeroSeguroSocial = NumeroSeguroSocial;
+        this->SATKeys = SATKeys;
+        this->ConstanciaFiscal = ConstanciaFiscal;
         this->FechaContratacion_Dia = FechaContratacion_Dia;
         this->FechaContratacion_Mes = FechaContratacion_Mes;
         this->FechaContratacion_Year = FechaContratacion_Year;
@@ -99,6 +103,8 @@ public:
     std::string Salario;
     int NumeroCuenta;
     int NumeroSeguroSocial;
+    int SATKeys;
+    int ConstanciaFiscal;
     int FechaContratacion_Dia;
     int FechaContratacion_Mes;
     int FechaContratacion_Year;
@@ -110,23 +116,19 @@ public:
     Contador():Empleado(){
         this -> Saldo = 0;
         this -> Sucursal = "N/A";
-        this -> SATKeys = "N/A";
-        this -> ConstanciaSituacionFiscal = "N/A";
         this -> PuestoEmpleado = "N/A";
     }
 
     // Constructor Explícito de Contador con Herencia de Empleado
-    Contador(int Saldo, std::string Sucursal, std::string SATKeys, std::string ConstanciaSituacionFiscal, std::string PuestoEmpleado):
-            Empleado(ID,Nombre,Direccion,EstadoCivil,RFC,Puesto,EstadoEmpresa,Salario,NumeroCuenta,NumeroSeguroSocial,FechaContratacion_Dia, FechaContratacion_Mes, FechaContratacion_Year){
+    Contador(int Saldo, std::string Sucursal, std::string PuestoEmpleado):
+            Empleado(ID,Nombre,Direccion,EstadoCivil,RFC,Puesto,EstadoEmpresa,Salario,NumeroCuenta,NumeroSeguroSocial,SATKeys,ConstanciaFiscal,FechaContratacion_Dia, FechaContratacion_Mes, FechaContratacion_Year){
         this -> Saldo = Saldo;
         this -> Sucursal = Sucursal;
-        this -> SATKeys = SATKeys;
-        this -> ConstanciaSituacionFiscal = ConstanciaSituacionFiscal;
         this -> PuestoEmpleado = PuestoEmpleado;
     }
 
     void RevisarDatos() {
-        std::string filename = "./BDPrincipal.csv";
+        std::string filename = "BDPrincipal.csv";
 
         std::cout << "Escriba su ID: ";
         std::cin >> ID;
@@ -165,6 +167,9 @@ public:
 
     void SalarioEmpleado() {
         std::string linea;
+        std::string valor_columna;
+        int fila_deseada = 1;
+        int columna_deseada = 6;
         std::string filename = "BDPrincipal.csv";
 
         std::cout << "Escriba su ID: ";
@@ -177,25 +182,38 @@ public:
             return;
         }
 
-        // Mostrar datos de BD
-        char delimitador = ',';
-        while (getline(csvFileIn, linea)) {
-            std::stringstream stream(linea);
-
-            // Pedir o sacar datos de la BD
-            std::getline(stream, ID, delimitador);
-            std::getline(stream, Salario, delimitador);
-
-            // Imprimir los datos que se solicitan
-            std::cout << "ID: " << ID << std::endl;
-            std::cout << "Salario: " << Salario << std::endl;
+        for (int i = 0; fila_deseada >= i; ++i){
+            if(!std::getline(csvFileIn, linea)){
+                std::cerr << "Nose pudo leer la fila" << fila_deseada << std::endl;
+            }
         }
+
+        std::istringstream linea_stream(linea);
+        std::string token;
+        int columna_actual = 0;
+
+        // Dividir la línea en tokens usando ',' como delimitador
+        while (std::getline(linea_stream, token, ',')) {
+            if (columna_actual == columna_deseada) {
+                valor_columna = token;
+                break;
+            }
+            columna_actual++;
+        }
+
+        // Imprimir el valor de la columna deseada
+        std::cout << "Salario: " << valor_columna << std::endl;
+
+
 
         csvFileIn.close(); // Cerramos el archivo
     }
 
-    void ClavesSAT() {
+    void ClaveSAT() {
         std::string linea;
+        std::string valor_columna;
+        int fila_deseada = 1;
+        int columna_deseada = 6;
         std::string filename = "BDPrincipal.csv";
 
         std::cout << "Escriba su ID: ";
@@ -208,25 +226,38 @@ public:
             return;
         }
 
-        // Mostrar datos de BD
-        char delimitador = ',';
-        while (std::getline(csvFileIn, linea)) {
-            std::stringstream stream(linea);
-
-            // Pedir o sacar datos de la BD
-            std::getline(stream, ID, delimitador);
-            std::getline(stream, SATKeys, delimitador);
-
-            //Imprimir los datos que se solicitan
-            std::cout << "ID: " << std::endl;
-            std::cout << "Clave SAT: " << std::endl;
+        for (int i = 0; fila_deseada >= i; ++i){
+            if(!std::getline(csvFileIn, linea)){
+                std::cerr << "Nose pudo leer la fila" << fila_deseada << std::endl;
+            }
         }
+
+        std::istringstream linea_stream(linea);
+        std::string token;
+        int columna_actual = 0;
+
+        // Dividir la línea en tokens usando ',' como delimitador
+        while (std::getline(linea_stream, token, ',')) {
+            if (columna_actual == columna_deseada) {
+                valor_columna = token;
+                break;
+            }
+            columna_actual++;
+        }
+
+        // Imprimir el valor de la columna deseada
+        std::cout << "SATKeys: " << valor_columna << std::endl;
+
+
 
         csvFileIn.close(); // Cerramos el archivo
     }
 
     void ConstanciasFiscales() {
         std::string linea;
+        std::string valor_columna;
+        int fila_deseada = 1;
+        int columna_deseada = 6;
         std::string filename = "BDPrincipal.csv";
 
         std::cout << "Escriba su ID: ";
@@ -239,21 +270,31 @@ public:
             return;
         }
 
-        //Mostrar datos de BD
-        char delimitador = ',';
-        while(std::getline(csvFileIn, linea)){
-            std::stringstream stream(linea);
-
-            //Pedir o sacar datos de la BD
-            std::getline(stream, ID, delimitador);
-            std::getline(stream, ConstanciaSituacionFiscal, delimitador);
-
-            //Imprimir los datos que se solicitan
-            std::cout << "ID: " << std::endl;
-            std::cout << "Constancia de Situacion Fiscal: " << std::endl;
+        for (int i = 0; fila_deseada >= i; ++i){
+            if(!std::getline(csvFileIn, linea)){
+                std::cerr << "Nose pudo leer la fila" << fila_deseada << std::endl;
+            }
         }
 
-        csvFileIn.close(); //Cerramos el archivo
+        std::istringstream linea_stream(linea);
+        std::string token;
+        int columna_actual = 0;
+
+        // Dividir la línea en tokens usando ',' como delimitador
+        while (std::getline(linea_stream, token, ',')) {
+            if (columna_actual == columna_deseada) {
+                valor_columna = token;
+                break;
+            }
+            columna_actual++;
+        }
+
+        // Imprimir el valor de la columna deseada
+        std::cout << "Constancia Fiscal: " << valor_columna << std::endl;
+
+
+
+        csvFileIn.close(); // Cerramos el archivo
     }
 
 
@@ -261,8 +302,6 @@ private:
     // Declaracion de Variables
     int Saldo;
     std::string Sucursal;
-    std::string SATKeys;
-    std::string ConstanciaSituacionFiscal;
     std::string PuestoEmpleado;
 };
 
@@ -279,7 +318,7 @@ public:
 
     // Constructor Explicito de Almacen con Herencia de Empleado
     Almacen(int NumCajas, int EspacioDisponible, int EspacioOcupado, int PesoCajas, std::string ContenidoCajas) :
-            Empleado(ID,Nombre,Direccion,EstadoCivil,RFC,Puesto,EstadoEmpresa,Salario,NumeroCuenta,NumeroSeguroSocial,FechaContratacion_Dia, FechaContratacion_Mes, FechaContratacion_Year){
+            Empleado(ID,Nombre,Direccion,EstadoCivil,RFC,Puesto,EstadoEmpresa,Salario,NumeroCuenta,NumeroSeguroSocial,SATKeys,ConstanciaFiscal,FechaContratacion_Dia, FechaContratacion_Mes, FechaContratacion_Year){
         this -> NumCajas = NumCajas;
         this -> EspacioDisponible = EspacioDisponible;
         this -> EspacioOcupado = EspacioOcupado;
@@ -326,8 +365,7 @@ public:
     }
 
     void SucursalesInventario() {
-        Sucursal sucursal("0",0,0);
-        sucursal.ElegirSucursal();
+        std::cout << "SucursalesInventario()"; //Placeholder
     }
 
 
@@ -350,7 +388,7 @@ public:
 
     // Constructor Explicito
     Gerente(std::string Contratar, std::string Despedir) :
-            Empleado(ID,Nombre,Direccion,EstadoCivil,RFC,Puesto,EstadoEmpresa,Salario,NumeroCuenta,NumeroSeguroSocial,FechaContratacion_Dia, FechaContratacion_Mes, FechaContratacion_Year){
+            Empleado(ID,Nombre,Direccion,EstadoCivil,RFC,Puesto,EstadoEmpresa,Salario,NumeroCuenta,NumeroSeguroSocial,SATKeys,ConstanciaFiscal,FechaContratacion_Dia, FechaContratacion_Mes, FechaContratacion_Year){
         this -> Contratar = Contratar;
         this -> Despedir = Despedir;
     }
@@ -359,7 +397,7 @@ public:
         std::string filename = "BDPrincipal.csv";
 
         // Ingresar Datos del Empleado
-        std::cout << "Ingrese los nuevos datos del Empleado procurando separar los datos con una coma (Puesto, Nombre, Dirección, Estado Civil, RFC, Salario, Numero de Cuenta, Numero de Seguro Social, Dia de Contratación, Mes de Contratación, Año de Contratación y Estado Actual en la Empresa, Usuario, Contraseña): "<<std::endl;
+        std::cout << "Ingrese los nuevos datos del Empleado procurando separar los datos con una coma (Puesto, Nombre, Dirección, Estado Civil, RFC, Salario, Numero de Cuenta, Numero de Seguro Social, SATKeys, ConstanciaFiscal, Dia de Contratación, Mes de Contratación, Año de Contratación y Estado Actual en la Empresa, Usuario, Contraseña): "<<std::endl;
         std::string userInput;
         std::getline(std::cin, userInput);
 
@@ -549,7 +587,7 @@ public:
 
     // Constructor Explicito
     Jefe(std::string Ascender, std::string Descender, std::string Despedir, std::string Contratar) :
-            Empleado(ID,Nombre,Direccion,EstadoCivil,RFC,Puesto,EstadoEmpresa,Salario,NumeroCuenta,NumeroSeguroSocial,FechaContratacion_Dia, FechaContratacion_Mes, FechaContratacion_Year){
+            Empleado(ID,Nombre,Direccion,EstadoCivil,RFC,Puesto,EstadoEmpresa,Salario,NumeroCuenta,NumeroSeguroSocial,SATKeys,ConstanciaFiscal,FechaContratacion_Dia, FechaContratacion_Mes, FechaContratacion_Year){
         this -> Ascender = Ascender;
         this -> Descender = Descender;
         this -> Despedir = Despedir;
