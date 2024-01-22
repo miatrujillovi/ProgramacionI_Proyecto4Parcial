@@ -44,11 +44,11 @@ public:
                 sucursal1.verInventario();
                 std::cout << "Deseas Modificar? Y(1)/N(0)" << std::endl;
                 std::cin >> opcionmod;
-                if(opcionmod == 0)
+                if(opcionmod == 1)
                 {
                     sucursal1.modInventario();
                 }
-                if(opcionmod == 1)
+                if(opcionmod == 0)
                 {
                     ElegirSucursal();
                 }
@@ -61,11 +61,11 @@ public:
                 sucursal2.verInventario();
                 std::cout << "Deseas Modificar? Y(1)/N(0)" << std::endl;
                 std::cin >> opcionmod;
-                if(opcionmod == 0)
+                if(opcionmod == 1)
                 {
                     sucursal1.modInventario();
                 }
-                if(opcionmod == 1)
+                if(opcionmod == 0)
                 {
                     ElegirSucursal();
                 }
@@ -78,11 +78,11 @@ public:
                 sucursal3.verInventario();
                 std::cout << "Deseas Modificar? Y(1)/N(0)" << std::endl;
                 std::cin >> opcionmod;
-                if(opcionmod == 0)
+                if(opcionmod == 1)
                 {
                     sucursal1.modInventario();
                 }
-                if(opcionmod == 1)
+                if(opcionmod == 0)
                 {
                     ElegirSucursal();
                 }
