@@ -39,7 +39,7 @@ events:
       Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CMakeCCompilerId.obj"
       
       The C compiler identification is MSVC, found in:
-        C:/Users/sdedf/CLionProjects/ProgramacionI_Proyecto4Parcial/df/cmake-build-debug/CMakeFiles/3.26.4/CompilerIdC/CMakeCCompilerId.exe
+        C:/Users/sdedf/CLionProjects/ProgramacionI_Proyecto4Parcial/dfafg/cmake-build-debug/CMakeFiles/3.26.4/CompilerIdC/CMakeCCompilerId.exe
       
   -
     kind: "message-v1"
@@ -51,7 +51,7 @@ events:
     message: |
       Detecting C compiler /showIncludes prefix:
         main.c
-        Nota: inclusión del archivo: C:\\Users\\sdedf\\CLionProjects\\ProgramacionI_Proyecto4Parcial\\df\\cmake-build-debug\\CMakeFiles\\ShowIncludes\\foo.h
+        Nota: inclusión del archivo: C:\\Users\\sdedf\\CLionProjects\\ProgramacionI_Proyecto4Parcial\\dfafg\\cmake-build-debug\\CMakeFiles\\ShowIncludes\\foo.h
         
       Found prefix "Nota: inclusión del archivo: "
   -
@@ -85,7 +85,7 @@ events:
       Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CMakeCXXCompilerId.obj"
       
       The CXX compiler identification is MSVC, found in:
-        C:/Users/sdedf/CLionProjects/ProgramacionI_Proyecto4Parcial/df/cmake-build-debug/CMakeFiles/3.26.4/CompilerIdCXX/CMakeCXXCompilerId.exe
+        C:/Users/sdedf/CLionProjects/ProgramacionI_Proyecto4Parcial/dfafg/cmake-build-debug/CMakeFiles/3.26.4/CompilerIdCXX/CMakeCXXCompilerId.exe
       
   -
     kind: "message-v1"
@@ -97,7 +97,7 @@ events:
     message: |
       Detecting CXX compiler /showIncludes prefix:
         main.c
-        Nota: inclusión del archivo: C:\\Users\\sdedf\\CLionProjects\\ProgramacionI_Proyecto4Parcial\\df\\cmake-build-debug\\CMakeFiles\\ShowIncludes\\foo.h
+        Nota: inclusión del archivo: C:\\Users\\sdedf\\CLionProjects\\ProgramacionI_Proyecto4Parcial\\dfafg\\cmake-build-debug\\CMakeFiles\\ShowIncludes\\foo.h
         
       Found prefix "Nota: inclusión del archivo: "
   -
@@ -109,8 +109,8 @@ events:
     checks:
       - "Detecting C compiler ABI info"
     directories:
-      source: "C:/Users/sdedf/CLionProjects/ProgramacionI_Proyecto4Parcial/df/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-2u2asz"
-      binary: "C:/Users/sdedf/CLionProjects/ProgramacionI_Proyecto4Parcial/df/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-2u2asz"
+      source: "C:/Users/sdedf/CLionProjects/ProgramacionI_Proyecto4Parcial/dfafg/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-pim78a"
+      binary: "C:/Users/sdedf/CLionProjects/ProgramacionI_Proyecto4Parcial/dfafg/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-pim78a"
     cmakeVariables:
       CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS"
       CMAKE_C_FLAGS_DEBUG: "/Ob0 /Od /RTC1"
@@ -119,10 +119,27 @@ events:
       variable: "CMAKE_C_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: C:/Users/sdedf/CLionProjects/ProgramacionI_Proyecto4Parcial/df/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-2u2asz
+        Change Dir: C:/Users/sdedf/CLionProjects/ProgramacionI_Proyecto4Parcial/dfafg/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-pim78a
         
-        Run Build Command(s):C:/Program Files/JetBrains/CLion 2023.2.2/bin/ninja/win/x64/ninja.exe -v cmTC_ad30d && [1/2] C:\\PROGRA~1\\MICROS~3\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1438~1.331\\bin\\Hostx64\\x64\\cl.exe  /nologo   /DWIN32 /D_WINDOWS  /Ob0 /Od /RTC1 -MDd -Zi /showIncludes /FoCMakeFiles\\cmTC_ad30d.dir\\CMakeCCompilerABI.c.obj /FdCMakeFiles\\cmTC_ad30d.dir\\ /FS -c "C:\\Program Files\\JetBrains\\CLion 2023.2.2\\bin\\cmake\\win\\x64\\share\\cmake-3.26\\Modules\\CMakeCCompilerABI.c"
-        [2/2] cmd.exe /C "cd . && "C:\\Program Files\\JetBrains\\CLion 2023.2.2\\bin\\cmake\\win\\x64\\bin\\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\\cmTC_ad30d.dir --rc=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\rc.exe --mt=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\mt.exe --manifests  -- C:\\PROGRA~1\\MICROS~3\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1438~1.331\\bin\\Hostx64\\x64\\link.exe /nologo CMakeFiles\\cmTC_ad30d.dir\\CMakeCCompilerABI.c.obj  /out:cmTC_ad30d.exe /implib:cmTC_ad30d.lib /pdb:cmTC_ad30d.pdb /version:0.0 /machine:x64  /debug /INCREMENTAL /subsystem:console  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib && cd ."
+        Run Build Command(s):C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/bin/cmake.exe -E env VERBOSE=1 nmake -f Makefile /nologo cmTC_c6399\\fast && 	"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\HostX64\\x64\\nmake.exe"  -f CMakeFiles\\cmTC_c6399.dir\\build.make /nologo -L                  CMakeFiles\\cmTC_c6399.dir\\build
+        Building C object CMakeFiles/cmTC_c6399.dir/CMakeCCompilerABI.c.obj
+        	"C:\\Program Files\\JetBrains\\CLion 2023.2.2\\bin\\cmake\\win\\x64\\bin\\cmake.exe" -E cmake_cl_compile_depends --dep-file=CMakeFiles\\cmTC_c6399.dir\\CMakeCCompilerABI.c.obj.d --working-dir=C:\\Users\\sdedf\\CLionProjects\\ProgramacionI_Proyecto4Parcial\\dfafg\\cmake-build-debug\\CMakeFiles\\CMakeScratch\\TryCompile-pim78a --filter-prefix="Nota: inclusi¾n del archivo: " -- C:\\PROGRA~1\\MICROS~3\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1438~1.331\\bin\\Hostx64\\x64\\cl.exe @C:\\Users\\sdedf\\AppData\\Local\\Temp\\nmB6EA.tmp
+        CMakeCCompilerABI.c
+        Linking C executable cmTC_c6399.exe
+        	"C:\\Program Files\\JetBrains\\CLion 2023.2.2\\bin\\cmake\\win\\x64\\bin\\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\\cmTC_c6399.dir --rc=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\rc.exe --mt=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\mt.exe --manifests -- C:\\PROGRA~1\\MICROS~3\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1438~1.331\\bin\\Hostx64\\x64\\link.exe /nologo @CMakeFiles\\cmTC_c6399.dir\\objects1.rsp @C:\\Users\\sdedf\\AppData\\Local\\Temp\\nmB862.tmp
+        Visual Studio Incremental Link with embedded manifests
+        Create CMakeFiles\\cmTC_c6399.dir/manifest.rc
+        Create empty: CMakeFiles\\cmTC_c6399.dir/embed.manifest
+        RC Pass 1:
+        C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\rc.exe /fo CMakeFiles\\cmTC_c6399.dir/manifest.res CMakeFiles\\cmTC_c6399.dir/manifest.rc
+        LINK Pass 1:
+        C:\\PROGRA~1\\MICROS~3\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1438~1.331\\bin\\Hostx64\\x64\\link.exe /nologo @CMakeFiles\\cmTC_c6399.dir\\objects1.rsp /out:cmTC_c6399.exe /implib:cmTC_c6399.lib /pdb:C:\\Users\\sdedf\\CLionProjects\\ProgramacionI_Proyecto4Parcial\\dfafg\\cmake-build-debug\\CMakeFiles\\CMakeScratch\\TryCompile-pim78a\\cmTC_c6399.pdb /version:0.0 /machine:x64 /debug /INCREMENTAL /subsystem:console kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTFILE:CMakeFiles\\cmTC_c6399.dir/intermediate.manifest CMakeFiles\\cmTC_c6399.dir/manifest.res
+        MT:
+        C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\mt.exe /nologo /manifest CMakeFiles\\cmTC_c6399.dir/intermediate.manifest /out:CMakeFiles\\cmTC_c6399.dir/embed.manifest /notify_update
+        RC Pass 2:
+        C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\rc.exe /fo CMakeFiles\\cmTC_c6399.dir/manifest.res CMakeFiles\\cmTC_c6399.dir/manifest.rc
+        FINAL LINK:
+        C:\\PROGRA~1\\MICROS~3\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1438~1.331\\bin\\Hostx64\\x64\\link.exe /nologo @CMakeFiles\\cmTC_c6399.dir\\objects1.rsp /out:cmTC_c6399.exe /implib:cmTC_c6399.lib /pdb:C:\\Users\\sdedf\\CLionProjects\\ProgramacionI_Proyecto4Parcial\\dfafg\\cmake-build-debug\\CMakeFiles\\CMakeScratch\\TryCompile-pim78a\\cmTC_c6399.pdb /version:0.0 /machine:x64 /debug /INCREMENTAL /subsystem:console kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTFILE:CMakeFiles\\cmTC_c6399.dir/intermediate.manifest CMakeFiles\\cmTC_c6399.dir/manifest.res
         
       exitCode: 0
   -
@@ -134,8 +151,8 @@ events:
     checks:
       - "Detecting CXX compiler ABI info"
     directories:
-      source: "C:/Users/sdedf/CLionProjects/ProgramacionI_Proyecto4Parcial/df/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-296jim"
-      binary: "C:/Users/sdedf/CLionProjects/ProgramacionI_Proyecto4Parcial/df/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-296jim"
+      source: "C:/Users/sdedf/CLionProjects/ProgramacionI_Proyecto4Parcial/dfafg/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-th8goa"
+      binary: "C:/Users/sdedf/CLionProjects/ProgramacionI_Proyecto4Parcial/dfafg/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-th8goa"
     cmakeVariables:
       CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /EHsc"
       CMAKE_CXX_FLAGS_DEBUG: "/Ob0 /Od /RTC1"
@@ -144,10 +161,27 @@ events:
       variable: "CMAKE_CXX_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: C:/Users/sdedf/CLionProjects/ProgramacionI_Proyecto4Parcial/df/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-296jim
+        Change Dir: C:/Users/sdedf/CLionProjects/ProgramacionI_Proyecto4Parcial/dfafg/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-th8goa
         
-        Run Build Command(s):C:/Program Files/JetBrains/CLion 2023.2.2/bin/ninja/win/x64/ninja.exe -v cmTC_b1621 && [1/2] C:\\PROGRA~1\\MICROS~3\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1438~1.331\\bin\\Hostx64\\x64\\cl.exe  /nologo /TP   /DWIN32 /D_WINDOWS /EHsc  /Ob0 /Od /RTC1 -MDd -Zi /showIncludes /FoCMakeFiles\\cmTC_b1621.dir\\CMakeCXXCompilerABI.cpp.obj /FdCMakeFiles\\cmTC_b1621.dir\\ /FS -c "C:\\Program Files\\JetBrains\\CLion 2023.2.2\\bin\\cmake\\win\\x64\\share\\cmake-3.26\\Modules\\CMakeCXXCompilerABI.cpp"
-        [2/2] cmd.exe /C "cd . && "C:\\Program Files\\JetBrains\\CLion 2023.2.2\\bin\\cmake\\win\\x64\\bin\\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\\cmTC_b1621.dir --rc=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\rc.exe --mt=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\mt.exe --manifests  -- C:\\PROGRA~1\\MICROS~3\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1438~1.331\\bin\\Hostx64\\x64\\link.exe /nologo CMakeFiles\\cmTC_b1621.dir\\CMakeCXXCompilerABI.cpp.obj  /out:cmTC_b1621.exe /implib:cmTC_b1621.lib /pdb:cmTC_b1621.pdb /version:0.0 /machine:x64  /debug /INCREMENTAL /subsystem:console  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib && cd ."
+        Run Build Command(s):C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/bin/cmake.exe -E env VERBOSE=1 nmake -f Makefile /nologo cmTC_c07ec\\fast && 	"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\HostX64\\x64\\nmake.exe"  -f CMakeFiles\\cmTC_c07ec.dir\\build.make /nologo -L                  CMakeFiles\\cmTC_c07ec.dir\\build
+        Building CXX object CMakeFiles/cmTC_c07ec.dir/CMakeCXXCompilerABI.cpp.obj
+        	"C:\\Program Files\\JetBrains\\CLion 2023.2.2\\bin\\cmake\\win\\x64\\bin\\cmake.exe" -E cmake_cl_compile_depends --dep-file=CMakeFiles\\cmTC_c07ec.dir\\CMakeCXXCompilerABI.cpp.obj.d --working-dir=C:\\Users\\sdedf\\CLionProjects\\ProgramacionI_Proyecto4Parcial\\dfafg\\cmake-build-debug\\CMakeFiles\\CMakeScratch\\TryCompile-th8goa --filter-prefix="Nota: inclusi¾n del archivo: " -- C:\\PROGRA~1\\MICROS~3\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1438~1.331\\bin\\Hostx64\\x64\\cl.exe @C:\\Users\\sdedf\\AppData\\Local\\Temp\\nmBA84.tmp
+        CMakeCXXCompilerABI.cpp
+        Linking CXX executable cmTC_c07ec.exe
+        	"C:\\Program Files\\JetBrains\\CLion 2023.2.2\\bin\\cmake\\win\\x64\\bin\\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\\cmTC_c07ec.dir --rc=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\rc.exe --mt=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\mt.exe --manifests -- C:\\PROGRA~1\\MICROS~3\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1438~1.331\\bin\\Hostx64\\x64\\link.exe /nologo @CMakeFiles\\cmTC_c07ec.dir\\objects1.rsp @C:\\Users\\sdedf\\AppData\\Local\\Temp\\nmBAF2.tmp
+        Visual Studio Incremental Link with embedded manifests
+        Create CMakeFiles\\cmTC_c07ec.dir/manifest.rc
+        Create empty: CMakeFiles\\cmTC_c07ec.dir/embed.manifest
+        RC Pass 1:
+        C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\rc.exe /fo CMakeFiles\\cmTC_c07ec.dir/manifest.res CMakeFiles\\cmTC_c07ec.dir/manifest.rc
+        LINK Pass 1:
+        C:\\PROGRA~1\\MICROS~3\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1438~1.331\\bin\\Hostx64\\x64\\link.exe /nologo @CMakeFiles\\cmTC_c07ec.dir\\objects1.rsp /out:cmTC_c07ec.exe /implib:cmTC_c07ec.lib /pdb:C:\\Users\\sdedf\\CLionProjects\\ProgramacionI_Proyecto4Parcial\\dfafg\\cmake-build-debug\\CMakeFiles\\CMakeScratch\\TryCompile-th8goa\\cmTC_c07ec.pdb /version:0.0 /machine:x64 /debug /INCREMENTAL /subsystem:console kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTFILE:CMakeFiles\\cmTC_c07ec.dir/intermediate.manifest CMakeFiles\\cmTC_c07ec.dir/manifest.res
+        MT:
+        C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\mt.exe /nologo /manifest CMakeFiles\\cmTC_c07ec.dir/intermediate.manifest /out:CMakeFiles\\cmTC_c07ec.dir/embed.manifest /notify_update
+        RC Pass 2:
+        C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\rc.exe /fo CMakeFiles\\cmTC_c07ec.dir/manifest.res CMakeFiles\\cmTC_c07ec.dir/manifest.rc
+        FINAL LINK:
+        C:\\PROGRA~1\\MICROS~3\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1438~1.331\\bin\\Hostx64\\x64\\link.exe /nologo @CMakeFiles\\cmTC_c07ec.dir\\objects1.rsp /out:cmTC_c07ec.exe /implib:cmTC_c07ec.lib /pdb:C:\\Users\\sdedf\\CLionProjects\\ProgramacionI_Proyecto4Parcial\\dfafg\\cmake-build-debug\\CMakeFiles\\CMakeScratch\\TryCompile-th8goa\\cmTC_c07ec.pdb /version:0.0 /machine:x64 /debug /INCREMENTAL /subsystem:console kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTFILE:CMakeFiles\\cmTC_c07ec.dir/intermediate.manifest CMakeFiles\\cmTC_c07ec.dir/manifest.res
         
       exitCode: 0
 ...
