@@ -7,7 +7,7 @@
 #include <vector>
 #include "Usuarios.h"
 #include "menu.h"
-
+//Funcion que crea BD Y COMPRUEBA SU EXISTENCIA
 void createDatabaseFile() {
     std::ifstream file("BDPrincipal.csv");
     if (!file.good()) {
@@ -17,20 +17,21 @@ void createDatabaseFile() {
     }
 }
 int rango;
+//Inicio funcion login
 std::string Login() {
     std::string usuario, contra;
     std::cout << "Ingresar usuario para continuar" << std::endl << " Usuario: ";
     std::cin >> usuario;
     std::cout << "Ingresar contra para continuar" << std::endl << " Contra: ";
     std::cin >> contra;
-
+//Apertira de base de datos
     std::string archivoName = "BDPrincipal.csv";
     std::ifstream archivoLectura(archivoName);
     if (!archivoLectura.is_open()) {
         std::cout << "No se ha podido acceder al archivo de la base de datos." << std::endl;
         return "";
     }
-
+//Inicio de lectura de base de datos
     std::string linea;
     bool find = false;
     while (std::getline(archivoLectura, linea)) {
@@ -41,9 +42,10 @@ std::string Login() {
         while (std::getline(ss, campo, ',')) {
             campos.push_back(campo);
         }
-
+//Inicio de comprobacion de credenciales con los campos de el archivo de la DB
         if (campos.size() >= 2 && campos[13] == usuario && campos[14] == contra) {
             find = true;
+            //Inicio verificacion de puesto para abrir el menu
             if(campos.size()>=2 && campos[1]=="jefe"||campos[1]=="Jefe"){
                 rango=1;
                 break;}
@@ -63,11 +65,11 @@ std::string Login() {
             break;
         }
     }
+    //Cierra DB
     archivoLectura.close();
-
+    //Condicional de inicio de seccion
     if (find) {
         std::cout << "Acceso Correcto." << std::endl;
-        std::cout<<rango;
         return usuario;
 
     } else {
@@ -77,7 +79,7 @@ std::string Login() {
 }
 
 
-//Menú de empleados
+//funcion de apertura de menu por puesto
 
 void openMenu(){
 
@@ -104,6 +106,7 @@ void openMenu(){
     }
 
 }
+//funcion total
 void LoginTotal() {
     createDatabaseFile();
     Login();
