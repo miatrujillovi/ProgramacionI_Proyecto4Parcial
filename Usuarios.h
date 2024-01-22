@@ -359,7 +359,7 @@ public:
         std::string filename = "BDPrincipal.csv";
 
         // Ingresar Datos del Empleado
-        std::cout << "Ingrese los nuevos datos del Empleado procurando separar los datos con una coma (Puesto, Nombre, Dirección, Estado Civil, RFC, Salario, Numero de Cuenta, Numero de Seguro Social, Dia de Contratación, Mes de Contratación, Año de Contratación y Estado Actual en la Empresa): "<<std::endl;
+        std::cout << "Ingrese los nuevos datos del Empleado procurando separar los datos con una coma (Puesto, Nombre, Dirección, Estado Civil, RFC, Salario, Numero de Cuenta, Numero de Seguro Social, Dia de Contratación, Mes de Contratación, Año de Contratación y Estado Actual en la Empresa, Usuario, Contraseña): "<<std::endl;
         std::string userInput;
         std::getline(std::cin, userInput);
 
