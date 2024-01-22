@@ -42,13 +42,13 @@ public:
         switch (opcion) {
             case 1:
                 sucursal1.verInventario();
-                std::cout << "Deseas Modificar? Y(1)/N(0)" << std::endl;
+                std::cout << "Deseas Mod'ificar? Y/N" << std::endl;
                 std::cin >> opcionmod;
-                if(opcionmod == "y")
+                if(opcionmod == 'y' || opcionmod == 'Y')
                 {
                     sucursal1.modInventario();
                 }
-                if(opcionmod == "n")
+                if(opcionmod == 'n' || opcionmod == 'N')
                 {
                     ElegirSucursal();
                 }
@@ -61,11 +61,11 @@ public:
                 sucursal2.verInventario();
                 std::cout << "Deseas Modificar? Y(1)/N(0)" << std::endl;
                 std::cin >> opcionmod;
-                if(opcionmod == "y")
+                if(opcionmod == 'y' || opcionmod == 'Y' )
                 {
                     sucursal1.modInventario();
                 }
-                if(opcionmod == "n")
+                if(opcionmod == 'n' || opcionmod == 'N' )
                 {
                     ElegirSucursal();
                 }
@@ -78,11 +78,11 @@ public:
                 sucursal3.verInventario();
                 std::cout << "Deseas Modificar? Y(1)/N(0)" << std::endl;
                 std::cin >> opcionmod;
-                if(opcionmod == "y")
+                if(opcionmod == 'y' || opcionmod == 'Y' )
                 {
                     sucursal1.modInventario();
                 }
-                if(opcionmod == "n")
+                if(opcionmod == 'n' || opcionmod == 'N' )
                 {
                     ElegirSucursal();
                 }
